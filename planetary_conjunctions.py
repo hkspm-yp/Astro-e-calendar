@@ -22,14 +22,15 @@ for i in range(len(planet_list_top)):
 
             for t, planetary_conjunctions_degrees in zip(planetary_conjunctions_times, planetary_conjunctions):
                 if planetary_conjunctions_degrees <5:
-                    temp_list_planetary_conjunctions=['0=year', '1=month','2=date','3=hour','4=minute','5=second','6=event_Eng','7=event_Chi']
-                    temp_list_planetary_conjunctions[0]=t.astimezone(HKT).year
-                    temp_list_planetary_conjunctions[1]=t.astimezone(HKT).month
-                    temp_list_planetary_conjunctions[2]=t.astimezone(HKT).day
-                    temp_list_planetary_conjunctions[3]=t.astimezone(HKT).hour
-                    temp_list_planetary_conjunctions[4]=t.astimezone(HKT).minute
-                    temp_list_planetary_conjunctions[5]=int(t.astimezone(HKT).second)
-                    temp_list_planetary_conjunctions[6]=planet_name_list_eng[i] + ' '+ planet_name_list_eng[j]+ ' conjunction '+' (' + str( "%0.2f" % planetary_conjunctions_degrees) +'°)'
-                    temp_list_planetary_conjunctions[7]=planet_name_list_chi[i] + '合'+ planet_name_list_chi[j]+  '(' + str( "%0.2f" % planetary_conjunctions_degrees) +'°)'
+                    # temp_list_planetary_conjunctions=['0=year', '1=month','2=date','3=hour','4=minute','5=second','6=event_Eng','7=event_Chi', '8=level']
+                    temp_list_planetary_conjunctions=['0=event_Chi', '1=event_Eng','2=date(dd/mm/yyyy)','3=time(hh/mm)','4=remark','5=level']
+                    temp_list_planetary_conjunctions[2]=t.astimezone(HKT).date()
+                    temp_list_planetary_conjunctions[3]=(float(t.astimezone(HKT).time().hour)+float(t.astimezone(HKT).time().minute)/60+float(t.astimezone(HKT).time().second)/3600)/24
+                    temp_list_planetary_conjunctions[4]=''
+                    temp_list_planetary_conjunctions[1]=planet_name_list_eng[i] + ' '+ planet_name_list_eng[j]+ ' conjunction '+' (' + str( "%0.2f" % planetary_conjunctions_degrees) +'°)'
+                    temp_list_planetary_conjunctions[0]=planet_name_list_chi[i] + '合'+ planet_name_list_chi[j]+  '(' + str( "%0.2f" % planetary_conjunctions_degrees) +'°)'
+                    temp_list_planetary_conjunctions[5]='?'
+                    if j == 5 or j == 6:
+                        temp_list_planetary_conjunctions[5]=3
                     print(temp_list_planetary_conjunctions)
                     list_planetary_conjunctions.append(temp_list_planetary_conjunctions)
