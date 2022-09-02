@@ -8,7 +8,7 @@ t, y = almanac.find_discrete(t0, t1, almanac.seasons(eph))
 list_SEASON_EVENTS=[]
 for yi, ti in zip(y, t):
     
-    temp_list_SEASON_EVENTS=['0=event_Chi', '1=event_Eng','2=date(dd/mm/yyyy)','3=time(hh/mm)','4=remark','5=level']
+    temp_list_SEASON_EVENTS=['0=event_Chi', '1=event_Eng','2=date(dd/mm/yyyy)','3=time(hh/mm)','','5=level']
     if yi==0:
         temp_list_SEASON_EVENTS[0]='春分'
     if yi==1:

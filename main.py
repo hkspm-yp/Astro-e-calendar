@@ -18,13 +18,13 @@ saturn = eph['saturn barycenter']
 uranus = eph['uranus barycenter']
 neptune = eph['neptune barycenter']
 pluto = eph['pluto barycenter']
-
 HKT = timezone('Asia/Hong_Kong')
-t0 = ts.utc(2021, 1, 1) - 1/3
-t1 = ts.utc(2021, 12, 31) - 1/3
+year=2022
+t0 = ts.utc(year, 1, 1) - 1/3
+t1 = ts.utc(year, 12, 31) - 1/3
 
 # from opposition import*
-list0=[['0=event_Chi', '1=event_Eng','2=date(dd/mm/yyyy)','3=time(hh/mm)','4=remark','5=level']]
+list0=[['1. Chin. Title', '2. Eng. Title','Date','HKT','Remark','Level (highest=1)']]
 
 #moon_phase()
 if __name__ == '__main__':
@@ -34,9 +34,11 @@ if __name__ == '__main__':
     from elongations import *    
     from moon_apogee_perigee import *    
     from earth_apohelion_perihelion import *    
-    from lunar_conjunctions import *    
-    from planetary_conjunctions import *
-    # from sunrise_sunset import *
+    from lunar_appulse import *    
+    from planetary_appulse import *
+    from stars_lunar_appulse import *
+    from sunrise_sunset import *
+    from meteor_shower import*
     list0.extend(
         list_SEASON_EVENTS +
         list_moon_phases + 
@@ -46,10 +48,12 @@ if __name__ == '__main__':
         list_moon_perigee +    
         list_earth_aphelion +
         list_earth_perihelion +
-        list_lunar_conjunctions +
-        list_planetary_conjunctions
-        # sunrise_sun
+        list_lunar_appulse +
+        list_planetary_appulse +
+        list_stars_appulse +
+        sunrise_sun + 
+        list_meteor_shower
         )
     #df[list_SEASON_EVENTS]=list0
-    pd.DataFrame(list0).to_excel('output.xlsx', header=False, index=False)
-    print('output.xlsx is saved.')
+    pd.DataFrame(list0).to_excel('output'+ str(year) +'.xlsx', header=False, index=False)
+    print('output'+ str(year) +'.xlsx is saved.')
