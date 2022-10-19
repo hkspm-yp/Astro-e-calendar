@@ -19,7 +19,7 @@ uranus = eph['uranus barycenter']
 neptune = eph['neptune barycenter']
 pluto = eph['pluto barycenter']
 HKT = timezone('Asia/Hong_Kong')
-year=2022
+year = 2023
 t0 = ts.utc(year, 1, 1) - 1/3
 t1 = ts.utc(year, 12, 31) - 1/3
 
@@ -39,9 +39,13 @@ if __name__ == '__main__':
     from stars_lunar_appulse import *
     from sunrise_sunset import *
     from meteor_shower import*
+    from lunar_conjunctions import *
+    from lunar_eclipses import *
+    from planetary_conjunctions_arcsec import *
+    from stars_lunar_conjunctions import *
     list0.extend(
         list_SEASON_EVENTS +
-        list_moon_phases + 
+        list_moon_phases +
         list_oppositions_conjunctions + 
         list_elongations + 
         list_moon_apogee +
@@ -52,7 +56,11 @@ if __name__ == '__main__':
         list_planetary_appulse +
         list_stars_appulse +
         sunrise_sun + 
-        list_meteor_shower
+        list_meteor_shower +
+        list_lunar_conjunctions +
+        list_lunar_eclipses +
+        list_planetary_conjunctions
+        # list_stars_conjunctions
         )
     #df[list_SEASON_EVENTS]=list0
     pd.DataFrame(list0).to_excel('output'+ str(year) +'.xlsx', header=False, index=False)

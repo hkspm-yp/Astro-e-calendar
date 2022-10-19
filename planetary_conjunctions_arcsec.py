@@ -17,15 +17,12 @@ for i in range(len(planet_list_top)):
                 e = earth.at(t)
                 s = e.observe(planet_list_top[i]).apparent()
                 m = e.observe(planet_list_top[j]).apparent()
-                _, lon1, _ = s.ecliptic_latlon(epoch = 'date')
-                _, lon2, _ = m.ecliptic_latlon(epoch = 'date')
-                # return s.separation_from(m).degrees
-                return abs(lon2.degrees - lon1.degrees) # % 360.0 > 180.0
+                return s.separation_from(m).degrees
             planetary_conjunctions_at.step_days = 15.0
             planetary_conjunctions_times, planetary_conjunctions = find_minima(t0, t1, planetary_conjunctions_at)
 
             for t, planetary_conjunctions_degrees in zip(planetary_conjunctions_times, planetary_conjunctions):
-                if planetary_conjunctions_degrees < 0.1:
+                if planetary_conjunctions_degrees < 5:
                     # temp_list_planetary_conjunctions=['0=year', '1=month','2=date','3=hour','4=minute','5=second','6=event_Eng','7=event_Chi', '8=level']
                     temp_list_planetary_conjunctions=['0=event_Chi', '1=event_Eng','2=date(dd/mm/yyyy)','3=time(hh/mm)','4=remark','5=level']
                     temp_list_planetary_conjunctions[2]=t.astimezone(HKT).date()

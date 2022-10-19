@@ -17,10 +17,9 @@ for i in range(len(planet_list_top)):
                 e = earth.at(t)
                 s = e.observe(planet_list_top[i]).apparent()
                 m = e.observe(planet_list_top[j]).apparent()
-                _, lon1, _ = s.ecliptic_latlon(epoch = 'date')
-                _, lon2, _ = m.ecliptic_latlon(epoch = 'date')
-                # return s.separation_from(m).degrees
-                return abs(lon2.degrees - lon1.degrees) # % 360.0 > 180.0
+                sRa, _, _ = s.radec(epoch = 'date')
+                mRa, _, _ = m.radec(epoch = 'date')
+                return abs(sRa.hours - mRa.hours)
             planetary_conjunctions_at.step_days = 15.0
             planetary_conjunctions_times, planetary_conjunctions = find_minima(t0, t1, planetary_conjunctions_at)
 
