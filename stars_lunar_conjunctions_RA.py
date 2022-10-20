@@ -38,7 +38,7 @@ for i in range(len(stars_list)):
         mRa, _, _ = m.radec(epoch = 'date')
         return abs(sRa.hours - mRa.hours)
 
-    separation_at.step_days = 15.0
+    separation_at.step_days = 14.5
     
     separation_times, separation = find_minima(t0, t1, separation_at)
 
