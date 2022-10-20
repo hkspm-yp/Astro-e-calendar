@@ -39,10 +39,10 @@ if __name__ == '__main__':
     from stars_lunar_appulse import *
     from sunrise_sunset import *
     from meteor_shower import*
-    from lunar_conjunctions import *
+    from lunar_conjunctions_RA import *
     from lunar_eclipses import *
-    from planetary_conjunctions_arcsec import *
-    from stars_lunar_conjunctions import *
+    from planetary_conjunctions_RA import *
+    # from stars_lunar_conjunctions import *
     list0.extend(
         list_SEASON_EVENTS +
         list_moon_phases +
