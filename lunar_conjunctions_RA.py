@@ -33,8 +33,8 @@ for i in range(7):
             temp_list_lunar_conjunctions[2]=t.astimezone(HKT).date()
             temp_list_lunar_conjunctions[3]=(float(t.astimezone(HKT).time().hour)+float(t.astimezone(HKT).time().minute)/60+float(t.astimezone(HKT).time().second)/3600)/24
             temp_list_lunar_conjunctions[4]=''
-            temp_list_lunar_conjunctions[1]=name_list_eng[i] + ' (' + str("%0.2f" % separation_degrees) +'°)'
-            temp_list_lunar_conjunctions[0]=name_list_chi[i] + ' (' + str( "%0.2f" % separation_degrees) +'°)'
+            temp_list_lunar_conjunctions[1]=name_list_eng[i] + ' (right ascension)'
+            temp_list_lunar_conjunctions[0]=name_list_chi[i] + '（赤經）'
             temp_list_lunar_conjunctions[5]='?'
             phase = almanac.moon_phase(eph, t)
             # if i ==0 or i == 5 or i == 6:

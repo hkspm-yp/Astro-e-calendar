@@ -28,8 +28,8 @@ for i in range(len(planet_list)):
                     temp_list_planetary_conjunctions[2]=t.astimezone(HKT).date()
                     temp_list_planetary_conjunctions[3]=(float(t.astimezone(HKT).time().hour)+float(t.astimezone(HKT).time().minute)/60+float(t.astimezone(HKT).time().second)/3600)/24
                     temp_list_planetary_conjunctions[4]=''
-                    temp_list_planetary_conjunctions[1]=planet_name_list_eng[i] + ' '+ planet_name_list_eng[j]+ ' conjunction '+' (' + str( "%0.2f" % planetary_conjunctions_degrees) +'°)'
-                    temp_list_planetary_conjunctions[0]=planet_name_list_chi[i] + '合'+ planet_name_list_chi[j]+  '(' + str( "%0.2f" % planetary_conjunctions_degrees) +'°)'
+                    temp_list_planetary_conjunctions[1]=planet_name_list_eng[i] + ' '+ planet_name_list_eng[j]+ ' conjunction (ecliptic longitude)'
+                    temp_list_planetary_conjunctions[0]=planet_name_list_chi[i] + '合'+ planet_name_list_chi[j]+  '（黃經）'
                     temp_list_planetary_conjunctions[5]='?'
                     if j == 5 or j == 6:
                         temp_list_planetary_conjunctions[5]=3

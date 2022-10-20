@@ -20,11 +20,11 @@ name_list_eng=['Spica Moon Conjunction',
                'Aldebaran Moon Conjunction',
                'Pollux Moon Conjunction',]
 
-Spica = Star(ra_hours=(13, 26, 17), dec_degrees=(-11, 9, 40.5))
-Regulus = Star(ra_hours=(10, 8, 22.46), dec_degrees=(11, 58, 1.9))
-Antares = Star(ra_hours=(16, 29, 24.47), dec_degrees=(-26, 25, 55))
-Aldebaran = Star(ra_hours=(4, 35, 55.20), dec_degrees=(16, 30, 35.1))
-Pollux = Star(ra_hours=(7, 45, 19.36), dec_degrees=(28, 1, 34.7))
+Spica = Star(ra_hours=(13, 25, 11.58), dec_degrees=(-11, 9, 40.75))
+Regulus = Star(ra_hours=(10, 8, 22.31), dec_degrees=(11, 58, 1.95))
+Antares = Star(ra_hours=(16, 29, 24.46), dec_degrees=(-26, 25, 55.21))
+Aldebaran = Star(ra_hours=(4, 35, 55.24), dec_degrees=(16, 30, 33.49))
+Pollux = Star(ra_hours=(7, 45, 18.95), dec_degrees=(28, 1, 34.32))
 stars_list = [Spica, Regulus, Antares, Aldebaran, Pollux]
 list_stars_conjunctions = []
 
@@ -48,8 +48,8 @@ for i in range(len(stars_list)):
             temp_list_stars_conjunctions[2]=t.astimezone(HKT).date()
             temp_list_stars_conjunctions[3]=(float(t.astimezone(HKT).time().hour)+float(t.astimezone(HKT).time().minute)/60+float(t.astimezone(HKT).time().second)/3600)/24
             temp_list_stars_conjunctions[4]=''
-            temp_list_stars_conjunctions[1]=name_list_eng[i] + ' (' + str("%0.2f" % separation_degrees) +'°)'
-            temp_list_stars_conjunctions[0]=name_list_chi[i] + ' (' + str( "%0.2f" % separation_degrees) +'°)'
+            temp_list_stars_conjunctions[1]=name_list_eng[i] + ' (right ascension)'
+            temp_list_stars_conjunctions[0]=name_list_chi[i] + '（赤經）'
             temp_list_stars_conjunctions[5]='?'
             phase = almanac.moon_phase(eph, t)
             # if i ==0 or i == 5 or i == 6:
