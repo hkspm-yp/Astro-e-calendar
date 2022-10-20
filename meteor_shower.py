@@ -21,7 +21,8 @@ for i in range(3):
                 list_meteor_shower[i][1]=meteor_shower_name_e_list[i] +' (ZHR=' + ZHR +')'
                 Date_name=list(Peak.replace(" ", ""))
                 Date_name[0:2], Date_name[2:5] = Date_name[3:5], Date_name[0:3]                
-                list_meteor_shower[i][2]=''.join(Date_name)+str(t1.astimezone(HKT).year)
+                # list_meteor_shower[i][2]=''.join(Date_name)+str(t1.astimezone(HKT).year)
+                list_meteor_shower[i][2]=t1.astimezone(HKT).date()
                 list_meteor_shower[i][3]=''
                 list_meteor_shower[i][4]='Please update'
                 list_meteor_shower[i][5]=1

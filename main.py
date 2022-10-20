@@ -23,10 +23,8 @@ year = 2023
 t0 = ts.utc(year, 1, 1) - 1/3
 t1 = ts.utc(year, 12, 31) - 1/3
 
-# from opposition import*
 list0=[['1. Chin. Title', '2. Eng. Title','Date','HKT','Remark','Level (highest=1)']]
 
-#moon_phase()
 if __name__ == '__main__':
     from season_events import *    
     from moon_phase import *    
@@ -42,7 +40,7 @@ if __name__ == '__main__':
     from lunar_conjunctions_RA import *
     from lunar_eclipses import *
     from planetary_conjunctions_RA import *
-    # from stars_lunar_conjunctions import *
+    from stars_lunar_conjunctions_RA import *
     list0.extend(
         list_SEASON_EVENTS +
         list_moon_phases +
@@ -59,9 +57,8 @@ if __name__ == '__main__':
         list_meteor_shower +
         list_lunar_conjunctions +
         list_lunar_eclipses +
-        list_planetary_conjunctions
-        # list_stars_conjunctions
+        list_planetary_conjunctions +
+        list_stars_conjunctions
         )
-    #df[list_SEASON_EVENTS]=list0
     pd.DataFrame(list0).to_excel('output'+ str(year) +'.xlsx', header=False, index=False)
     print('output'+ str(year) +'.xlsx is saved.')
