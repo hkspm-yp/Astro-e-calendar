@@ -16,7 +16,8 @@ list_lunar_appulse=[]
 
 for i in range(7):
     def separation_at(t):
-        e = earth.at(t)
+        # e = earth.at(t) # Observe from geocentre
+        e = (earth + wgs84.latlon(22.3193 * N, 114.1694 * E)).at(t) # Observe from Hong Kong
         s = e.observe(moon).apparent()
         m = e.observe(planet_list[i]).apparent()
         return s.separation_from(m).degrees

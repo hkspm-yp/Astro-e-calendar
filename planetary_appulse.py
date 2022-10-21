@@ -13,7 +13,8 @@ for i in range(len(planet_list_top)):
     for j in range(len(planet_list_top)):
         if i < j:
             def planetary_appulse_at(t):
-                e = earth.at(t)
+                # e = earth.at(t) # Observe from geocentre
+                e = (earth + wgs84.latlon(22.3193 * N, 114.1694 * E)).at(t) # Observe from Hong Kong
                 s = e.observe(planet_list_top[i]).apparent()
                 m = e.observe(planet_list_top[j]).apparent()
                 return s.separation_from(m).degrees

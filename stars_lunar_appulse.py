@@ -29,7 +29,8 @@ planet_list=[Spica, Regulus, Antares, Aldebaran, Pollux]
 
 for i in range(5):
     def separation_at(t):
-        e = earth.at(t)
+        # e = earth.at(t) # Observe from geocentre
+        e = (earth + wgs84.latlon(22.3193 * N, 114.1694 * E)).at(t) # Observe from Hong Kong
         m = e.observe(moon).apparent()
         s = e.observe(planet_list[i]).apparent()
         return s.separation_from(m).degrees
