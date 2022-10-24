@@ -124,4 +124,4 @@ if __name__ == '__main__':
 #        list_moon_phases
         )
  ```
-Only  the data of seasonal points will be generated. Do remember  to delete the "+" before the comment line
+Only  the data of seasonal points will be generated. Do remember to delete the "+" if the comment line is the last line.
