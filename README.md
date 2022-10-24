@@ -1,3 +1,11 @@
+# Astronomical Event list generator
+To generate a list of astronomical events within a specified time range and save it into an excel file. This excel file can be used as the Astro e-calander of the Hong Kong Space Museum
+
+
+To generate a list of astronomical events within a specified time range (e.g.: 1/1/2023 - 31/12/2023) and save it into an excel file. This excel file is made according to the Astro e-calander of the Hong Kong Space Museum.
+
+## How to run
+
 Download all the above files from the button “Code” -> Download ZIP. Unzip the folder and put all .py files under the same folder.
 
 Python programming language has to be installed to the computer. For simplify, user may install the Anaconda Distribution which includes the latest python versions and many useful python packages including jupyter, Numpy, pandas and Spyder, etc. To install Anaconda, please go to
@@ -15,19 +23,36 @@ t1 = ts.utc(2021, 12, 31) - 1/3
 ...
 ```
 
-You can try to run “main.py” in Spyder. If the “package not found” error appears, install the python package by typing the following commands in Spyder’s terminal.
+You can try to run “main.py” in Spyder. If “package not found” error appears, install the python packages by typing the following commands in Spyder’s terminal.
 
 ```python
-Pip stall skyfield
+pip install skyfield
 ```
 ```python
-Pip stall pytz
+pip install pytz
 ```
 ```python
-Pip stall pandas
+pip install pandas
 ```
 ```python
-Pip stall bs4
+pip install bs4
 ```
 
-Several python packages are also required. These packages can be installed by typing the following commands in the terminal or command prompt (cmd). However, if the packages are installed into a different root/directory/environment other than the python programme itself, these package cannot be located when the programme is executed and For beginner, when the Anaconda Distribution is installed, 
+Whenever the “package not found” error appears, you can install the package by typing “ pip install [package name]”, then the programme should be able to proceed.
+
+If the Python programming language is installed in another way where the Anaconda Distribution is not used. The above packages have to be installed from the terminal or command prompt (cmd). However, if the packages are installed into a different root/directory/environment other than the python programme itself, these packages cannot be located when the programme is executed. The safest way is to execute the programme first and let the computer tells you which package is not found, then install the package from the same command window.
+
+If everything is correct, you can see the astronomical data from the command window, and an output[year].xlsx will be saved under the same folder of the .py files.
+
+
+## Useful tips
+
+Ephemeris data are computed based on an ephemeris. Here the NASA JPL Planetary and Lunar Ephemerides DE440 is used. For more information about DEXXX, please go to:
+https://ssd.jpl.nasa.gov/planets/eph_export.html
+
+The ephemeris file will be downloaded when the programme starts, to compute the data based on another file. For example, the MICA software (version 2.2.2) uses DE405, to simulate MICA result, DE405 has to be used by modifying the ephemeris name as:
+```python
+eph = api.load('de405.bsp')
+```
+Then the programme will download DE405 and compute the data based on that ephemeris.
+
