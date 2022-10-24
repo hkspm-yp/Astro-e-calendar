@@ -102,3 +102,26 @@ Occultation ends (reappearance): 19:47
 ```
 The sequence looks more intuitive, but MICA does not offer appulse.
 
+## Output selection
+
+The main.py will import and execute other .py file and generate an .xlsx file. User may reduce the events to be executed by making a code line as a comment. Such as:
+```python
+if __name__ == '__main__':
+    from season_events import *    
+    from moon_phase import *    
+    list0.extend(
+        list_SEASON_EVENTS +
+        list_moon_phases
+        )
+ ```
+Only the data of seasonal points and moon phases will be generated.
+```python
+if __name__ == '__main__':
+    from season_events import *    
+#    from moon_phase import *    
+    list0.extend(
+        list_SEASON_EVENTS
+#        list_moon_phases
+        )
+ ```
+Only  the data of seasonal points will be generated. Do remember  to delete the "+" before the comment line
