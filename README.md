@@ -1,7 +1,4 @@
 # Astronomical Event list generator
-To generate a list of astronomical events within a specified time range and save it into an excel file. This excel file can be used as the Astro e-calander of the Hong Kong Space Museum
-
-
 To generate a list of astronomical events within a specified time range (e.g.: 1/1/2023 - 31/12/2023) and save it into an excel file. This excel file is made according to the Astro e-calander of the Hong Kong Space Museum.
 
 ## How to run
@@ -15,11 +12,12 @@ After installing Anaconda, open the Spyder software and load the file “main.py
 After installing Anaconda, open the Spyder software and load the file “main.py”. You should see something like:
 
 ```python
+from skyfield import api
+from skyfield import almanac
+import pandas as pd
+from pytz import timezone
 ts = api.load.timescale()
 eph = api.load('de440.bsp')
-HKT = timezone('Asia/Hong_Kong')
-t0 = ts.utc(2021, 1, 1) - 1/3
-t1 = ts.utc(2021, 12, 31) - 1/3
 ...
 ```
 
@@ -50,9 +48,57 @@ If everything is correct, you can see the astronomical data from the command win
 Ephemeris data are computed based on an ephemeris. Here the NASA JPL Planetary and Lunar Ephemerides DE440 is used. For more information about DEXXX, please go to:
 https://ssd.jpl.nasa.gov/planets/eph_export.html
 
-The ephemeris file will be downloaded when the programme starts, to compute the data based on another file. For example, the MICA software (version 2.2.2) uses DE405, to simulate MICA result, DE405 has to be used by modifying the ephemeris name as:
+The ephemeris file will be downloaded when the programme runs, to compute the data based on another ephemeris. For example, the MICA software (version 2.2.2) uses DE405. To simulate MICA's result, DE405 has to be used by modifying the ephemeris name as:
 ```python
 eph = api.load('de405.bsp')
 ```
 Then the programme will download DE405 and compute the data based on that ephemeris.
+
+## Meteor shower data
+
+The meteor shower data (Quadrantids, Perseids, Geminids, Lyrids, Orionids, Leonids) are obtained by reading the HTML data from the IMO website: https://www.imo.net/members/imo_showers/working_shower_list
+
+User has to update the format of the dates (e.g.: 13Aug2022 -> 2022-08-13) manually and input the predicted peak time from the IMO’s Meteor Shower Calendar (pdf document form IMO’s resources page).
+
+If the format of this IMO website is changed, the programme will generate incorrect information.
+
+
+## Discrepancy in MICA
+This programme use a python package - Skyfield where most of its generated data fit perfectly with MICA's output. However, there some changes applied as explained below:
+
+**Rounding of number**
+
+It was found that MICA does the rounding incorrectly sometime. Please observe the following events:
+
+```
+Full moon 2023-4-6 12:34:31; MICA reports 12:34
+Full moon 2023-4-20 12:12:32; MICA reports 12:12
+Full moon 2023-9-29 17:57:32; MICA reports 12:57
+Neptune Moon Conjunction 2023-11-22 15:45:31; MICA reports 15:45
+```
+
+Other sources such as the Purple Mountain Observatory, China and National Astronomical Observatory of Japan round the time up to the nearest minute. Reason why MICA does not round them up is unclear.
+
+**Defination of conjuction**
+
+MICA defines planetary conjuction happens when the objects(planet+moon/planet+planet) share the same right ascension. However, many other sources defines planetary conjuction when the two planets share the same ecliptic longitude. In skyfield, both defination can be used depends on how the programme is written. But please see below.
+
+**Conjunction vs Appulse**
+
+Conjunction is not defined as the closet angular separation before two objects. However, the public concerns the closest moment only. Hence, in this programme, the closest angular separation, or appulse, is reported rather than conjunction. Please observe this case where on 2022-11-08, a total lunar eclipse and a Lunar occultation of Uranus happens at the same time. 
+
+```
+Occultation starts (disappearance): 18:58
+Occultation ends (reappearance): 19:47
+Uranus Moon Conjunction (right ascension): 21:11
+```
+
+In conjunction, the event happens after the reappearance of Uranus, which means Uranus has already left the moon disc completely. It is obvious that Uranus has already passed the closet separation to the moon. However, if appulse is used to replace conjunction, then we have:
+
+```
+Occultation starts (disappearance): 18:58
+Uranus Moon Appulse: 19:22
+Occultation ends (reappearance): 19:47
+```
+The sequence looks more intuitive, but MICA does not offer appulse.
 
