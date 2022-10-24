@@ -3,17 +3,18 @@ from skyfield.searchlib import find_maxima, find_minima
 from main import *
 from pytz import timezone
 
-
-def moon_apogee(t):
+def moon_distance(t):
     e = earth.at(t)
-    md = e.observe(moon).apparent()
+    m = moon.at(t)
+    #md = e.observe(moon)
+        #Astrometric ICRS position
+    md=earth.at(t)-moon.at(t)
+        #Geometric ICRS position
     return md.distance().km
 
-# moon_close(t)
+moon_distance.step_days = 2.0
 
-moon_apogee.step_days = 2.0
-
-moon_apogee_times, moon_apogee_s = find_maxima(t0, t1, moon_apogee)
+moon_apogee_times, moon_apogee_s = find_maxima(t0, t1, moon_distance)
 
 list_moon_apogee=[]
 for t, moon_apogee_distance in zip(moon_apogee_times, moon_apogee_s):
@@ -29,16 +30,8 @@ for t, moon_apogee_distance in zip(moon_apogee_times, moon_apogee_s):
     print(temp_list_moon_apogee)
 
 # -----------------------------------
-def moon_perigee(t):
-    e = earth.at(t)
-    md = e.observe(moon).apparent()
-    return md.distance().km
 
-# moon_close(t)
-
-moon_perigee.step_days = 2.0
-
-moon_perigee_times, moon_perigee_s = find_minima(t0, t1, moon_perigee)
+moon_perigee_times, moon_perigee_s = find_minima(t0, t1, moon_distance)
 
 list_moon_perigee=[]
 for t, moon_perigee_distance in zip(moon_perigee_times, moon_perigee_s):
