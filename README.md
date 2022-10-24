@@ -5,16 +5,17 @@ To generate a list of astronomical events within a specified time range (e.g.: 1
 
 Download all the above files from the button “Code” -> Download ZIP. Unzip the folder and put all .py files under the same folder.
 
-Python programming language has to be installed to the computer. For simplicity, user may install the Anaconda Distribution which includes the latest python versions and many useful python modules including jupyter, Numpy, pandas and Spyder, etc. To install Anaconda, please go to
+Python programming language has to be installed on the computer. For simplicity, the user may install the Anaconda Distribution which includes the latest python versions and many useful python modules including jupyter, Numpy, pandas, Spyder, etc. To install Anaconda, please go to
 https://www.anaconda.com
 
-After installing Anaconda, open the Spyder software and load the file “main.py”. You should see something like:
+After installing Anaconda, open the Spyder software and load the file “main.py”. You should see something like this:
 
 ```python
-from skyfield import api
-from skyfield import almanac
+from skyfield import api, almanac
 import pandas as pd
+from skyfield.api import wgs84, N, S, E, W
 from pytz import timezone
+
 ts = api.load.timescale()
 eph = api.load('de440.bsp')
 ...
@@ -37,21 +38,21 @@ pip install bs4
 
 Whenever the `ModuleNotFoundError` appears, you can install the module by typing “ pip install [module name]”, then the programme should be able to proceed.
 
-If the Python programming language is installed in another way where the Anaconda Distribution is not used. The above modules have to be installed from the terminal or command prompt (cmd). However, if the modules are installed into a different root/directory/environment other than the python programme itself, these modules cannot be located when the programme is executed. The safest way is to execute the programme first and let the computer tells you which module is not found, then install the module from the same command window.
+If Python is installed in another way where the Anaconda Distribution is not used, the above modules have to be installed from the terminal or command prompt (cmd). However, if the modules are installed into a different root/directory/environment other than the python programme itself, these modules cannot be located when the programme executes. The safest way is to execute the programme first and let the computer tell you which module is absent, then install the module from the same command window.
 
-If everything is correct, you can see the astronomical data from the command window, and an output[year].xlsx will be saved under the same folder of the .py files.
+If everything is correct, you should be able to see the astronomical data from the command window, and an output[year].xlsx will be saved under the same folder of the .py files.
 
 
 ## Ephemeris
 
-Ephemeris data are computed based on an ephemeris. Here the NASA JPL Planetary and Lunar Ephemerides DE440 is used. For more information about DEXXX, please go to:
+Ephemeris data are computed based on an ephemeris. Here the NASA JPL Planetary and Lunar Ephemerides DE440 is used. For more information about DEXXX, please visit:
 https://ssd.jpl.nasa.gov/planets/eph_export.html
 
 The ephemeris file will be downloaded when the programme runs. To compute the data based on another ephemeris, for example, to simulate MICA(version 2.2.2)'s result, DE405 has to be used by modifying the ephemeris name as:
 ```python
 eph = api.load('de405.bsp')
 ```
-Then the programme will download DE405 and compute the data based on that ephemeris. However, there should be no difference between DE405 and DE440 when dealing with such basic astronomical events.
+Then the programme will download DE405 and compute the data based on that ephemeris. However, there should be no differences between DE405 and DE440 when dealing with such basic astronomical events.
 
 ## Meteor shower data
 
@@ -63,7 +64,7 @@ If the format of this IMO website is changed, the programme will generate incorr
 
 
 ## Discrepancy in MICA
-This programme use a python module - Skyfield where most of its generated data fit perfectly with MICA's output. However, there some changes applied as explained below:
+This programme uses a python module - Skyfield where most of its generated data fit perfectly with MICA's output. However, there are some contradictions as explained below:
 
 **Rounding of number**
 
@@ -76,15 +77,15 @@ Full moon 2023-9-29 17:57:32; MICA reports 12:57
 Neptune Moon Conjunction 2023-11-22 15:45:31; MICA reports 15:45
 ```
 
-Other sources such as the Purple Mountain Observatory, China and National Astronomical Observatory of Japan round the time up to the nearest minute. Reason why MICA does not round them up is unclear. This programme will round the time to the nearest second (or minute).
+Other sources such as the Purple Mountain Observatory, China and National Astronomical Observatory of Japan round the time off to the nearest minute. Reason why MICA does not round them off is ambiguous. This programme will round the time off to the nearest minute or mostly second, if available.
 
 **Defination of Conjunction**
 
-MICA defines planetary conjunction happens when the objects(planet+moon/planet+planet) share the same right ascension. However, many other sources defines planetary conjunction when the two planets share the same ecliptic longitude. In skyfield, both defination can be used depends on how the programme is written. But please see below.
+MICA defines planetary conjunction as the objects (planet + moon/planet + planet) share the same right ascension. However, many other sources defines planetary conjunction as the two planets share the same ecliptic longitude. In skyfield, both definition can be used depending on how the programme is written. Please refer to the contents below.
 
 **Conjunction vs Appulse**
 
-Conjunction is not defined as the closet angular separation before two objects. However, the public concerns the closest moment only. Hence, in this programme, the closest angular separation, or appulse, is reported rather than conjunction. Please observe this case where on 2022-11-08, a total lunar eclipse and a Lunar occultation of Uranus happens at the same time. 
+Conjunction is not defined as the closest angular separation between two objects. Tthe public, however, most likely solely concern about the closest moment. Hence, in this programme, the closest angular separation, or appulse, is reported rather than conjunction. This case is reflected on 2022-11-08, a total lunar eclipse and a lunar occultation of Uranus happens simultaneously at Hong Kong. 
 
 ```
 Occultation starts (disappearance): 18:58
@@ -92,7 +93,7 @@ Occultation ends (reappearance): 19:47
 Uranus Moon Conjunction (right ascension): 21:11
 ```
 
-In conjunction, the event happens after the reappearance of Uranus, which means Uranus has already left the moon disc completely. It is obvious that Uranus has already passed the closet separation to the moon. However, if appulse is used to replace conjunction, then we have:
+The conjunction event happens after the reappearance of Uranus, meaning that Uranus will have already left the moon disc completely. It is obvious that Uranus has already passed the closest separation to the moon. However, if appulse is used to replace conjunction, then we have:
 
 ```
 Occultation starts (disappearance): 18:58
@@ -103,7 +104,7 @@ The sequence looks more intuitive, but MICA does not offer appulse.
 
 ## Output selection
 
-The main.py will import and execute other .py file and generate an .xlsx file. User may reduce the events to be executed by making a code line as a comment. Such as:
+The main.py will import and execute other .py file and generate an .xlsx file. The user may opt for reduction of the events to be executed by making a code line as a comment. Such as:
 ```python
 if __name__ == '__main__':
     from season_events import *    
@@ -123,9 +124,9 @@ if __name__ == '__main__':
 #        list_moon_phases
         )
  ```
-Only  the data of seasonal points will be generated. Do remember to delete the "+" if the comment line is the last line.
+Only the data of seasonal points will be generated. Remember to delete the "+" if the comment line is the last line.
 
-To generate event list of another year, simply change the variable  ```year``` .
+To generate a list of events of another year, simply change the variable  ```year``` .
 
 ```python
 HKT = timezone('Asia/Hong_Kong')
@@ -138,7 +139,7 @@ t1 = ts.utc(year, 12, 31) - 1/3
  
 ## Level
 
-This programme distinguishes each astronomical event into different levels. Some events are themselves defined as level 1 such as moon phases, while some events like Moon at perigee, superior conjunction, etc, are level 3. Considerations are made for complicated events such as planetary appulse, for example:
+This programme distinguishes each astronomical event into different levels. Some events are defined as level 1 such as moon phases, while some other events like Moon at perigee, superior conjunction, etc, are level 3. Considerations are made for complicated events such as planetary appulse, for example:
 
 ```python
 if int(earth.at(t).observe(planet_list_top[i]).phase_angle(sun).degrees) >150:
@@ -155,8 +156,8 @@ if j == 5 or j == 6:
 ```
 If the first planet has a phase angle above 150 degrees, that means the angular separation between the Sun and the first planet is within 30 degrees, then the event will always be marked as level 3.
 
-If the angular separation between the Sun and the first planet is between 30 degrees and 60 degrees, and the separation between the two planets is smaller than 1 degree, then the event will be marked as level 1. Otherwise, the events will be at level 2.
+If the angular separation between the Sun and the first planet is between 30 degrees and 60 degrees, and the separation between the two planets is smaller than 1 degree, then the event will be marked as level 1. Otherwise, the events will be marked as level 2.
 
-In the remaining case where the angular separation between the Sun and the first planet is larger than 60 degrees, the events will always be level 1.
+In the remaining case where the angular separation between the Sun and the first planet is larger than 60 degrees, the events will always be marked as level 1.
 
-For Uranus and Neptune ( i.e.: j=5 and 6, defined in a python list), the events will always be level 3.
+For Uranus and Neptune ( i.e.: j=5 and 6, defined in a python list), the events will always be marked as level 3.
