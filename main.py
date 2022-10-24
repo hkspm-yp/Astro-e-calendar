@@ -1,7 +1,6 @@
-from skyfield import api
-from skyfield import almanac
+from skyfield import api, almanac
 import pandas as pd
-
+from skyfield.api import wgs84, N, S, E, W
 from pytz import timezone
 
 ts = api.load.timescale()
@@ -19,7 +18,7 @@ uranus = eph['uranus barycenter']
 neptune = eph['neptune barycenter']
 pluto = eph['pluto barycenter']
 HKT = timezone('Asia/Hong_Kong')
-year = 2023
+year = 2024
 t0 = ts.utc(year, 1, 1) - 1/3
 t1 = ts.utc(year, 12, 31) - 1/3
 
