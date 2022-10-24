@@ -42,7 +42,7 @@ If the Python programming language is installed in another way where the Anacond
 If everything is correct, you can see the astronomical data from the command window, and an output[year].xlsx will be saved under the same folder of the .py files.
 
 
-## Useful tips
+## Ephemeris
 
 Ephemeris data are computed based on an ephemeris. Here the NASA JPL Planetary and Lunar Ephemerides DE440 is used. For more information about DEXXX, please go to:
 https://ssd.jpl.nasa.gov/planets/eph_export.html
