@@ -138,7 +138,7 @@ t1 = ts.utc(year, 12, 31) - 1/3
  
 ## Level
 
-This programme distinguish each astronomical event into different levels. Some events are themselves defined as level 1 such as moon phases, while some events like Moon at perigee, superior conjunction, etc, are level 3. Some consideration is made for events such as planetary appulse, for example:
+This programme distinguishes each astronomical event into different levels. Some events are themselves defined as level 1 such as moon phases, while some events like Moon at perigee, superior conjunction, etc, are level 3. Considerations are made for complicated events such as planetary appulse, for example:
 
 ```python
 if int(earth.at(t).observe(planet_list_top[i]).phase_angle(sun).degrees) >150:
@@ -157,6 +157,6 @@ If the first planet has a phase angle above 150 degrees, that means the angular 
 
 If the angular separation between the Sun and the first planet is between 30 degrees and 60 degrees, and the separation between the two planets is smaller than 1 degree, then the event will be marked as level 1. Otherwise, the events will be at level 2.
 
-In the only remaining case, the angular separation between the Sun and the first planet is larger than 60 degrees, the events will always be level 1.
+In the remaining case where the angular separation between the Sun and the first planet is larger than 60 degrees, the events will always be level 1.
 
 For Uranus and Neptune ( i.e.: j=5 and 6, defined in a python list), the events will always be level 3.
