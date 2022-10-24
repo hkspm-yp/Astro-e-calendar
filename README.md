@@ -5,7 +5,7 @@ To generate a list of astronomical events within a specified time range (e.g.: 1
 
 Download all the above files from the button “Code” -> Download ZIP. Unzip the folder and put all .py files under the same folder.
 
-Python programming language has to be installed to the computer. For simplify, user may install the Anaconda Distribution which includes the latest python versions and many useful python modules including jupyter, Numpy, pandas and Spyder, etc. To install Anaconda, please go to
+Python programming language has to be installed to the computer. For simplicity, user may install the Anaconda Distribution which includes the latest python versions and many useful python modules including jupyter, Numpy, pandas and Spyder, etc. To install Anaconda, please go to
 https://www.anaconda.com
 
 After installing Anaconda, open the Spyder software and load the file “main.py”. You should see something like:
