@@ -1,4 +1,4 @@
-# Astronomical Event list generator
+# Astronomical Events List Generator
 To generate a list of astronomical events within a specified time range (e.g.: 1/1/2023 - 31/12/2023) and save it into an excel file. This excel file is made according to the Astro e-calander of the Hong Kong Space Museum.
 
 ## How to run
@@ -125,3 +125,13 @@ if __name__ == '__main__':
         )
  ```
 Only  the data of seasonal points will be generated. Do remember to delete the "+" if the comment line is the last line.
+
+To generate event list of another year, simply change the variable  ```year``` .
+
+```python
+HKT = timezone('Asia/Hong_Kong')
+year = 2023
+t0 = ts.utc(year, 1, 1) - 1/3
+t1 = ts.utc(year, 12, 31) - 1/3
+ ```
+ Here the events from 1/1/2023 to 31/12/2023 will be generated. the ```-1/3``` accounts for the timezone UTC+8 .
