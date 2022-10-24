@@ -5,10 +5,9 @@ To generate a list of astronomical events within a specified time range (e.g.: 1
 
 Download all the above files from the button “Code” -> Download ZIP. Unzip the folder and put all .py files under the same folder.
 
-Python programming language has to be installed to the computer. For simplify, user may install the Anaconda Distribution which includes the latest python versions and many useful python packages including jupyter, Numpy, pandas and Spyder, etc. To install Anaconda, please go to
+Python programming language has to be installed to the computer. For simplify, user may install the Anaconda Distribution which includes the latest python versions and many useful python modules including jupyter, Numpy, pandas and Spyder, etc. To install Anaconda, please go to
 https://www.anaconda.com
 
-After installing Anaconda, open the Spyder software and load the file “main.py”. You should see something like:
 After installing Anaconda, open the Spyder software and load the file “main.py”. You should see something like:
 
 ```python
@@ -21,7 +20,7 @@ eph = api.load('de440.bsp')
 ...
 ```
 
-You can try to run “main.py” in Spyder. If “package not found” error appears, install the python packages by typing the following commands in Spyder’s terminal.
+You can try to run “main.py” in Spyder. If `ModuleNotFoundError` appears, install the python modules by typing the following commands in Spyder’s terminal.
 
 ```python
 pip install skyfield
@@ -36,9 +35,9 @@ pip install pandas
 pip install bs4
 ```
 
-Whenever the “package not found” error appears, you can install the package by typing “ pip install [package name]”, then the programme should be able to proceed.
+Whenever the `ModuleNotFoundError` appears, you can install the module by typing “ pip install [module name]”, then the programme should be able to proceed.
 
-If the Python programming language is installed in another way where the Anaconda Distribution is not used. The above packages have to be installed from the terminal or command prompt (cmd). However, if the packages are installed into a different root/directory/environment other than the python programme itself, these packages cannot be located when the programme is executed. The safest way is to execute the programme first and let the computer tells you which package is not found, then install the package from the same command window.
+If the Python programming language is installed in another way where the Anaconda Distribution is not used. The above modules have to be installed from the terminal or command prompt (cmd). However, if the modules are installed into a different root/directory/environment other than the python programme itself, these modules cannot be located when the programme is executed. The safest way is to execute the programme first and let the computer tells you which module is not found, then install the module from the same command window.
 
 If everything is correct, you can see the astronomical data from the command window, and an output[year].xlsx will be saved under the same folder of the .py files.
 
@@ -48,11 +47,11 @@ If everything is correct, you can see the astronomical data from the command win
 Ephemeris data are computed based on an ephemeris. Here the NASA JPL Planetary and Lunar Ephemerides DE440 is used. For more information about DEXXX, please go to:
 https://ssd.jpl.nasa.gov/planets/eph_export.html
 
-The ephemeris file will be downloaded when the programme runs, to compute the data based on another ephemeris. For example, the MICA software (version 2.2.2) uses DE405. To simulate MICA's result, DE405 has to be used by modifying the ephemeris name as:
+The ephemeris file will be downloaded when the programme runs. To compute the data based on another ephemeris, for example, to simulate MICA(version 2.2.2)'s result, DE405 has to be used by modifying the ephemeris name as:
 ```python
 eph = api.load('de405.bsp')
 ```
-Then the programme will download DE405 and compute the data based on that ephemeris.
+Then the programme will download DE405 and compute the data based on that ephemeris. However, there should be no difference between DE405 and DE440 when dealing with such basic astronomical events.
 
 ## Meteor shower data
 
@@ -64,7 +63,7 @@ If the format of this IMO website is changed, the programme will generate incorr
 
 
 ## Discrepancy in MICA
-This programme use a python package - Skyfield where most of its generated data fit perfectly with MICA's output. However, there some changes applied as explained below:
+This programme use a python module - Skyfield where most of its generated data fit perfectly with MICA's output. However, there some changes applied as explained below:
 
 **Rounding of number**
 
@@ -77,11 +76,11 @@ Full moon 2023-9-29 17:57:32; MICA reports 12:57
 Neptune Moon Conjunction 2023-11-22 15:45:31; MICA reports 15:45
 ```
 
-Other sources such as the Purple Mountain Observatory, China and National Astronomical Observatory of Japan round the time up to the nearest minute. Reason why MICA does not round them up is unclear.
+Other sources such as the Purple Mountain Observatory, China and National Astronomical Observatory of Japan round the time up to the nearest minute. Reason why MICA does not round them up is unclear. This programme will round the time to the nearest second (or minute).
 
-**Defination of conjuction**
+**Defination of Conjunction**
 
-MICA defines planetary conjuction happens when the objects(planet+moon/planet+planet) share the same right ascension. However, many other sources defines planetary conjuction when the two planets share the same ecliptic longitude. In skyfield, both defination can be used depends on how the programme is written. But please see below.
+MICA defines planetary conjunction happens when the objects(planet+moon/planet+planet) share the same right ascension. However, many other sources defines planetary conjunction when the two planets share the same ecliptic longitude. In skyfield, both defination can be used depends on how the programme is written. But please see below.
 
 **Conjunction vs Appulse**
 
@@ -134,4 +133,30 @@ year = 2023
 t0 = ts.utc(year, 1, 1) - 1/3
 t1 = ts.utc(year, 12, 31) - 1/3
  ```
- Here the events from 1/1/2023 to 31/12/2023 will be generated. the ```-1/3``` accounts for the timezone UTC+8 .
+ Here the events from 1/1/2023 to 31/12/2023 will be generated. the ```-1/3``` accounts for the timezone UTC+8.
+ 
+ 
+## Level
+
+This programme distinguish each astronomical event into different levels. Some events are themselves defined as level 1 such as moon phases, while some events like Moon at perigee, superior conjunction, etc, are level 3. Some consideration is made for events such as planetary appulse, for example:
+
+```python
+if int(earth.at(t).observe(planet_list_top[i]).phase_angle(sun).degrees) >150:
+    temp_list_planetary_appulse[5]=3
+elif int(earth.at(t).observe(planet_list_top[i]).phase_angle(sun).degrees) > 120:
+    if planetary_appulse_degrees < 1:
+        temp_list_planetary_appulse[5]=1
+    else:
+        temp_list_planetary_appulse[5]=2
+else:
+    temp_list_planetary_appulse[5]=1
+if j == 5 or j == 6:
+    temp_list_planetary_appulse[5]=3
+```
+If the first planet has a phase angle above 150 degrees, that means the angular separation between the Sun and the first planet is within 30 degrees, then the event will always be marked as level 3.
+
+If the angular separation between the Sun and the first planet is between 30 degrees and 60 degrees, and the separation between the two planets is smaller than 1 degree, then the event will be marked as level 1. Otherwise, the events will be at level 2.
+
+In the only remaining case, the angular separation between the Sun and the first planet is larger than 60 degrees, the events will always be level 1.
+
+For Uranus and Neptune ( i.e.: j=5 and 6, defined in a python list), the events will always be level 3.
