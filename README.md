@@ -1,5 +1,5 @@
 # Astronomical Events List Generator
-To generate a list of astronomical events within a specified time range (e.g.: 1/1/2023 - 31/12/2023) and save it into an excel file. This excel file is made according to the Astro e-calander of the Hong Kong Space Museum.
+To generate a list of astronomical events (except solar eclipse) within a specified time range (e.g.: 1/1/2023 - 31/12/2023) and save it into an excel file. This excel file is made according to the Astro e-calander of the Hong Kong Space Museum.
 
 ## How to run
 
@@ -161,3 +161,13 @@ If the angular separation between the Sun and the first planet is between 30 deg
 In the remaining case where the angular separation between the Sun and the first planet is larger than 60 degrees, the events will always be marked as level 1.
 
 For Uranus and Neptune ( i.e.: j=5 and 6, defined in a python list), the events will always be marked as level 3.
+
+
+## Future update
+
+Solar Eclipse is not included. Please update manually.
+
+Meteor shower data is obtained by reading HTML data from IMO website. It provides information of current year only. To get IMO's prediction, please check IMO's Meteor Shower Calendar.
+
+The coordinate of star (RA, DEC) is referred to its position in 2022. For higher precision appusle between stars, occultation, etc, pleases update the coordinates manually to obtain J(now), it can be found online or from stellarium. By specifying its proper motion, the latest coordinates can be computed in future update.
+
