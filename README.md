@@ -82,7 +82,7 @@ Other sources such as the Purple Mountain Observatory, China, and National Astro
 
 **Defination of Conjunction**
 
-MICA defines planetary conjunction as the objects (planet + moon/planet + planet) share the same right ascension. However, many other sources define planetary conjunction as the two planets share the same ecliptic longitude. In skyfield, both definition can be used depending on how the programme is written. However, conjunction is not used as default, please see the contents below.
+MICA defines planetary conjunction as the objects (planet + moon/planet + planet) share the same right ascension. However, many other sources define planetary conjunction as the two planets share the same ecliptic longitude. In skyfield, both definitions can be used depending on how it is written. However, conjunction is not used as default, please see the contents below.
 
 **Conjunction vs Appulse**
 
