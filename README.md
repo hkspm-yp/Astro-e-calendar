@@ -62,6 +62,7 @@ User has to update the format of the dates (e.g.: 13Aug2022 -> 2022-08-13) manua
 
 If the format of this IMO website is changed, the programme will generate incorrect information.
 
+Since the IMO website above provides the meteor shower of current year only. The programme will always give the same result even another year is selected.
 
 ## Discrepancy in MICA
 This programme uses a python module - Skyfield where most of its generated data fit perfectly with MICA's output. However, there are some contradictions as explained below:
@@ -167,7 +168,8 @@ For Uranus and Neptune ( i.e.: j=5 and 6, defined in a python list), the events 
 
 Solar Eclipse is not included. Please update manually.
 
-Meteor shower data is obtained by reading HTML data from IMO website. It provides information of current year only. To get IMO's prediction, please check IMO's Meteor Shower Calendar.
+Meteor shower data is obtained by reading HTML data from IMO website. It provides information of current year only. To get IMO's prediction, please check IMO's Meteor Shower Calendar. IMO has an API for programme access but it doesn't work well at the time of creating this programme.
 
-The coordinate of star (RA, DEC) is referred to its position in 2022. For higher precision appusle between stars, occultation, etc, pleases update the coordinates manually to obtain J(now), it can be found online or from stellarium. By specifying its proper motion, the latest coordinates can be computed in future update.
+The coordinates of stars (RA, DEC) are referred to its position in 2022. For higher precision appusle between stars, occultation, etc, pleases update the coordinates manually to obtain J(now), it can be found online or from stellarium. By specifying its proper motion, the latest coordinates can be computed in future update.
 
+An occultation event will be marked if the appusle between the stars or planets and the moon is less than 0.25 degrees. This number can be refined.
