@@ -65,7 +65,7 @@ If the format of this IMO website is changed, the programme will generate incorr
 Since the IMO website above provides the meteor shower of current year only. The programme will always give the same result even another year is selected.
 
 ## Compare with MICA
-This programme uses a python module - Skyfield where most of its generated data fit perfectly with MICA's output. However, there are some contradictions as explained below:
+This programme uses a python module - Skyfield where most of its generated data fit perfectly with MICA's output. However, there are some modifications as explained below:
 
 **Rounding of number**
 
@@ -78,15 +78,15 @@ Full moon 2023-9-29 17:57:32; MICA reports 12:57
 Neptune Moon Conjunction 2023-11-22 15:45:31; MICA reports 15:45
 ```
 
-Other sources such as the Purple Mountain Observatory, China and National Astronomical Observatory of Japan round the time off to the nearest minute. Reason why MICA does not round them off is ambiguous. This programme will round the time off to the nearest minute or mostly second, if available.
+Other sources such as the Purple Mountain Observatory, China, and National Astronomical Observatory of Japan round the time off to the nearest minute. Reason why MICA does not round them off is unknown. This programme will round the time off to the nearest minute or mostly second, if available.
 
 **Defination of Conjunction**
 
-MICA defines planetary conjunction as the objects (planet + moon/planet + planet) share the same right ascension. However, many other sources defines planetary conjunction as the two planets share the same ecliptic longitude. In skyfield, both definition can be used depending on how the programme is written. Please refer to the contents below.
+MICA defines planetary conjunction as the objects (planet + moon/planet + planet) share the same right ascension. However, many other sources define planetary conjunction as the two planets share the same ecliptic longitude. In skyfield, both definition can be used depending on how the programme is written. However, conjunction is not used as default, please see the contents below.
 
 **Conjunction vs Appulse**
 
-Conjunction is not defined as the closest angular separation between two objects. Tthe public, however, most likely solely concern about the closest moment. Hence, in this programme, the closest angular separation, or appulse, is reported rather than conjunction. This case is reflected on 2022-11-08, a total lunar eclipse and a lunar occultation of Uranus happens simultaneously at Hong Kong. 
+Conjunction is not defined as the closest angular separation between two objects. However, only the closest moments are of interest to the public. Hence, in this programme, the closest angular separation, or appulse, is reported rather than conjunction. Please find an example below where a lunar occultation of Uranus happens (togehter with a tolar lunar eclipse) in Hong Kong. 
 
 ```
 Occultation starts (disappearance): 18:58
@@ -105,7 +105,7 @@ The sequence looks more intuitive, but MICA does not offer appulse.
 
 ## Output selection
 
-The main.py will import and execute other .py file and generate an .xlsx file. The user may opt for reduction of the events to be executed by making a code line as a comment. Such as:
+The main.py will import and execute other .py file and generate an .xlsx file. The user may reduce the number of events to be executed by making a code line as a comment. Such as:
 ```python
 if __name__ == '__main__':
     from season_events import *    
@@ -157,7 +157,7 @@ else:
 if j == 5 or j == 6:
     temp_list_planetary_appulse[5]=3
 ```
-If the first planet has a phase angle above 150 degrees, that means the angular separation between the Sun and the first planet is within 30 degrees, then the event will always be marked as level 3.
+If the first planet has a phase angle above 150 degrees, that means the angular separation between the Sun and the first planet is within 30 degrees, then the event will always be marked as level 3 since it is hardly observable.
 
 If the angular separation between the Sun and the first planet is between 30 degrees and 60 degrees, and the separation between the two planets is smaller than 1 degree, then the event will be marked as level 1. Otherwise, the events will be marked as level 2.
 
