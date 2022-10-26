@@ -39,8 +39,8 @@ for yi, ti in zip(y, t):
         temp_list_moon_phases[0]='下弦'
     print(temp_list_moon_phases)
     list_moon_phases.append(temp_list_moon_phases)
-list_smallest_fullmoon[4]= str(int(list_smallest_fullmoon[4])) + ' km'
-list_largest_fullmoon[4]= str(int(list_largest_fullmoon[4])) + ' km'
+list_smallest_fullmoon[4]='地月距離 Earth-Moon distance: ' + str(int(list_smallest_fullmoon[4])) + ' km'
+list_largest_fullmoon[4]='地月距離 Earth-Moon distance: ' + str(int(list_largest_fullmoon[4])) + ' km'
 print(list_smallest_fullmoon)
 print(list_largest_fullmoon)
 list_moon_phases.append(list_smallest_fullmoon)

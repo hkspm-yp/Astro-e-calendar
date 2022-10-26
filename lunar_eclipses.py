@@ -10,13 +10,13 @@ for yi, ti in zip(y, t):
     temp_list_lunar_eclipses[2]=ti.astimezone(HKT).date()
     temp_list_lunar_eclipses[3]=(float(ti.astimezone(HKT).time().hour)+float(ti.astimezone(HKT).time().minute)/60+float(ti.astimezone(HKT).time().second)/3600)/24
     temp_list_lunar_eclipses[4]=''
-    temp_list_lunar_eclipses[1]=eclipselib.LUNAR_ECLIPSES[yi] + " Lunar Eclipse"
+    temp_list_lunar_eclipses[1]=eclipselib.LUNAR_ECLIPSES[yi] + " Lunar Eclipse (Maximum)"
     temp_list_lunar_eclipses[5]='1/香港不可見'
     if yi==0:
-        temp_list_lunar_eclipses[0]='半影月食'
+        temp_list_lunar_eclipses[0]='半影月食 (食甚)'
     if yi==1:
-        temp_list_lunar_eclipses[0]='月偏食'
+        temp_list_lunar_eclipses[0]='月偏食 (食甚)'
     if yi==2:
-        temp_list_lunar_eclipses[0]='月全食'
+        temp_list_lunar_eclipses[0]='月全食 (食甚)'
     list_lunar_eclipses.append(temp_list_lunar_eclipses)
     print(temp_list_lunar_eclipses)
