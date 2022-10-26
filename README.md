@@ -164,7 +164,7 @@ In the remaining case where the angular separation between the Sun and the first
 For Uranus and Neptune ( i.e.: j=5 and 6, defined in a python list), the events will always be marked as level 3.
 
 
-## Future update
+## Remarks, Limitations and Possible Future Updates
 
 Solar Eclipse is not included. Please update manually.
 
@@ -173,3 +173,13 @@ Meteor shower data is obtained by reading HTML data from IMO website. It provide
 The coordinates of stars (RA, DEC) are referred to its position in 2022. For higher precision appusle between stars, occultation, etc, pleases update the coordinates manually to obtain J(now), it can be found online or from stellarium. By specifying its proper motion, the latest coordinates can be computed in future update.
 
 An occultation event will be marked if the appusle between the stars or planets and the moon is less than 0.25 degrees. This number can be refined.
+
+The earliest or latest sunrise and sunset time are not the same for different latitudes.
+```python
+if  ti.astimezone(HKT).month == 1:
+```
+To find the latest sunset, only January is considered in this programme as the latest sunset in Hong Kong is always with January.
+```python
+if  ti.astimezone(HKT).month== 6 or ti.astimezone(HKT).month== 7:
+ ```
+As an example, if an event may occur in June or July, the programme should be written as above.
