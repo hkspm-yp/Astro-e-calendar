@@ -129,6 +129,8 @@ Only the data of seasonal points will be generated. Remember to delete the "+" i
 
 To generate a list of events of another year, simply change the variable  ```year``` .
 
+The output file is named as Astro E-calendar [year] raw.xlsx. It is recommended to remove raw when the solar eclipse information and meteor shower information are updated.
+
 ```python
 HKT = timezone('Asia/Hong_Kong')
 year = 2023
