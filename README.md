@@ -64,7 +64,7 @@ If the format of this IMO website is changed, the programme will generate incorr
 
 Since the IMO website above provides the meteor shower of current year only. The programme will always give the same result even another year is selected.
 
-## Discrepancy in MICA
+## Compare with MICA
 This programme uses a python module - Skyfield where most of its generated data fit perfectly with MICA's output. However, there are some contradictions as explained below:
 
 **Rounding of number**
