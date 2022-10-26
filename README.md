@@ -52,7 +52,7 @@ The ephemeris file will be downloaded when the programme runs. To compute the da
 ```python
 eph = api.load('de405.bsp')
 ```
-Then the programme will download DE405 and compute the data based on that ephemeris. However, there should be no differences between DE405 and DE440 when dealing with such basic astronomical events.
+Then the programme will download DE405 and compute the data based on that ephemeris. However, there should be no difference between DE405 and DE440 when dealing with such basic astronomical events.
 
 ## Meteor shower data
 
