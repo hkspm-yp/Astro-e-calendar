@@ -20,17 +20,18 @@ name_list_eng=['Spica-Moon Appulse',
                'Aldebaran-Moon Appulse',
                'Pollux-Moon Appulse',]
 list_stars_appulse=[]
-Spica = Star(ra_hours=(13, 26, 17), dec_degrees=(-11, 9, 40.5))
-Regulus  = Star(ra_hours=(10, 8, 22.46), dec_degrees=(11, 58, 1.9))
-Antares  = Star(ra_hours=(16, 29, 24.47), dec_degrees=(-26, 25, 55))
-Aldebaran  = Star(ra_hours=(4, 35, 55.20), dec_degrees=(16, 30, 35.1))
-Pollux  = Star(ra_hours=(7, 45, 19.36), dec_degrees=(28, 1, 34.7))
+# RA and DEC from J(now at 2022). Not J(2000). Atmospheric refraction is not considered.
+Spica = Star(ra_hours=(13, 26, 21.67), dec_degrees=(-11, 16, 37.1))
+Regulus  = Star(ra_hours=(10, 9, 33.70), dec_degrees=(11, 51, 29.6))
+Antares  = Star(ra_hours=(16, 30, 46.33), dec_degrees=(-26, 28, 53.4))
+Aldebaran  = Star(ra_hours=(4, 37, 14.11), dec_degrees=(16, 33, 19.8))
+Pollux  = Star(ra_hours=(7, 46, 41.86), dec_degrees=(27, 58, 12.1))
 planet_list=[Spica, Regulus, Antares, Aldebaran, Pollux]
 
 for i in range(5):
     def separation_at(t):
         # e = earth.at(t) # Observe from geocentre
-        e = (earth + wgs84.latlon(22.3193 * N, 114.1694 * E)).at(t) # Observe from Hong Kong
+        e = (earth + HKO).at(t) # Observe from HKO
         m = e.observe(moon).apparent()
         s = e.observe(planet_list[i]).apparent()
         return s.separation_from(m).degrees
@@ -44,9 +45,13 @@ for i in range(5):
         temp_list_stars_appulse[2]=t.astimezone(HKT).date()
         temp_list_stars_appulse[3]=(float(t.astimezone(HKT).time().hour)+float(t.astimezone(HKT).time().minute)/60+float(t.astimezone(HKT).time().second)/3600)/24
         phase = almanac.moon_phase(eph, t)
-        temp_list_stars_appulse[4]='Angular separation is ' + str("%0.2f" % separation_degrees) +'°; ' + 'Phase degrees of the Moon is ' + str(int(phase.degrees))+'°'
+        # temp_list_stars_appulse[4]='角距 Angular separation: ' + str("%0.2f" % separation_degrees) +'°; ' + 'Phase degrees of the Moon is ' + str(int(phase.degrees))+'°'
+        temp_list_stars_appulse[4]='角距 Angular separation: ' + str("%0.2f" % separation_degrees) +'°'
         temp_list_stars_appulse[1]=name_list_eng[i]
         temp_list_stars_appulse[0]=name_list_chi[i]
+        if separation_degrees<0.25:
+            temp_list_stars_appulse[0]=name_list_chi[i]+'(掩)'
+            temp_list_stars_appulse[1]=name_list_eng[i]+'(Occultation)'
         temp_list_stars_appulse[5]='?'
         # if i ==0 or i == 5 or i == 6:
         #     temp_list_stars_appulse[8]='3' 

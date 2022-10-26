@@ -17,7 +17,7 @@ list_lunar_appulse=[]
 for i in range(7):
     def separation_at(t):
         # e = earth.at(t) # Observe from geocentre
-        e = (earth + wgs84.latlon(22.3193 * N, 114.1694 * E)).at(t) # Observe from Hong Kong
+        e = (earth + HKO).at(t) # Observe from HKO
         s = e.observe(moon).apparent()
         m = e.observe(planet_list[i]).apparent()
         return s.separation_from(m).degrees
@@ -30,9 +30,12 @@ for i in range(7):
         temp_list_lunar_appulse=['0=event_Chi', '1=event_Eng','2=date(dd/mm/yyyy)','3=time(hh/mm)','4=remark','5=level']
         temp_list_lunar_appulse[2]=t.astimezone(HKT).date()
         temp_list_lunar_appulse[3]=(float(t.astimezone(HKT).time().hour)+float(t.astimezone(HKT).time().minute)/60+float(t.astimezone(HKT).time().second)/3600)/24
-        temp_list_lunar_appulse[4]=str("%0.2f" % separation_degrees) +'°'
+        temp_list_lunar_appulse[4]='角距 Angular separation: ' + str("%0.2f"% separation_degrees) +'°'
         temp_list_lunar_appulse[1]=name_list_eng[i]
         temp_list_lunar_appulse[0]=name_list_chi[i]
+        if separation_degrees<0.25:
+            temp_list_lunar_appulse[0]=name_list_chi[i]+'(掩)'
+            temp_list_lunar_appulse[1]=name_list_eng[i]+'(Occultation)'
         temp_list_lunar_appulse[5]='?'
         phase = almanac.moon_phase(eph, t)
         # if i ==0 or i == 5 or i == 6:
