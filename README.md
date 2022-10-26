@@ -180,7 +180,7 @@ For Uranus and Neptune ( i.e.: j=5 and 6, defined in a python list), the events 
 ```python
 if  ti.astimezone(HKT).month == 1:
 ```
-To find the latest sunset, only January is considered in this programme as the latest sunset in Hong Kong is always with January.
+To find the latest sunset, only January is considered in this programme as the latest sunset in Hong Kong is always within January.
 ```python
 if  ti.astimezone(HKT).month== 6 or ti.astimezone(HKT).month== 7:
  ```
