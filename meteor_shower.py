@@ -23,7 +23,7 @@ for i in range(6):
                 Date_name[0:2], Date_name[2:5] = Date_name[3:5], Date_name[0:3]                
                 list_meteor_shower[i][2]=''.join(Date_name)+str(t1.astimezone(HKT).year)
                 list_meteor_shower[i][3]=''
-                list_meteor_shower[i][4]='Please update'
+                list_meteor_shower[i][4]='Please update ZHR, Date and Time.'
                 if i <3:
                     list_meteor_shower[i][5]=1
                 else:
