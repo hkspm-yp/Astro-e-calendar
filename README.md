@@ -36,9 +36,9 @@ pip install pandas
 pip install bs4
 ```
 
-Whenever the `ModuleNotFoundError` appears, you can install the module by typing “ pip install [module name]”, then the programme should be able to proceed.
+Whenever the `ModuleNotFoundError` appears, you can install the module by typing “ pip install [module name]”, then the program should be able to proceed.
 
-If Python is installed in another way where the Anaconda Distribution is not used, the above modules have to be installed from the terminal or command prompt (cmd). However, if the modules are installed into a different root/directory/environment other than the python programme itself, these modules cannot be located when the programme executes. The safest way is to execute the programme first and let the computer tell you which module is absent, then install the module from the same command window.
+If Python is installed in another way where the Anaconda Distribution is not used, the above modules have to be installed from the terminal or command prompt (cmd). However, if the modules are installed into a different root/directory/environment other than the python program itself, these modules cannot be located when the program executes. The safest way is to execute the program first and let the computer tell you which module is absent, then install the module from the same command window.
 
 If everything is correct, you should be able to see the astronomical data from the command window, and an Astro E-calendar [year] raw.xlsx will be saved under the same folder of the .py files.
 
@@ -48,11 +48,11 @@ If everything is correct, you should be able to see the astronomical data from t
 Ephemeris data are computed based on an ephemeris. Here the NASA JPL Planetary and Lunar Ephemerides DE440 is used. For more information about DEXXX, please visit:
 https://ssd.jpl.nasa.gov/planets/eph_export.html
 
-The ephemeris file will be downloaded when the programme runs. To compute the data based on another ephemeris, for example, to simulate MICA(version 2.2.2)'s result, DE405 has to be used by modifying the ephemeris name as:
+The ephemeris file will be downloaded when the program runs. To compute the data based on another ephemeris, for example, to simulate MICA(version 2.2.2)'s result, DE405 has to be used by modifying the ephemeris name as:
 ```python
 eph = api.load('de405.bsp')
 ```
-Then the programme will download DE405 and compute the data based on that ephemeris. However, there should be no difference between DE405 and DE440 when dealing with such basic astronomical events.
+Then the program will download DE405 and compute the data based on that ephemeris. However, there should be no difference between DE405 and DE440 when dealing with such basic astronomical events.
 
 ## Meteor shower data
 
@@ -60,12 +60,12 @@ The meteor shower data (Quadrantids, Perseids, Geminids, Lyrids, Orionids, Leoni
 
 User has to update the format of the dates (e.g.: 13Aug2022 -> 2022-08-13) manually and input the predicted peak time from the IMO’s Meteor Shower Calendar (pdf document form IMO’s resources page).
 
-If the format of this IMO website is changed, the programme will generate incorrect information.
+If the format of this IMO website is changed, the program will generate incorrect information.
 
-Since the IMO website above provides the meteor shower of current year only, the programme will always give the same result even another year is selected.
+Since the IMO website above provides the meteor shower of current year only, the program will always give the same result even another year is selected.
 
 ## Compare with MICA
-This programme uses a python module - Skyfield where most of its generated data fit perfectly with MICA's output. However, there are some modifications as explained below:
+This program uses a python module - Skyfield where most of its generated data fit perfectly with MICA's output. However, there are some modifications as explained below:
 
 **Rounding of number**
 
@@ -78,15 +78,15 @@ Full moon 2023-9-29 17:57:32; MICA reports 12:57
 Neptune Moon Conjunction 2023-11-22 15:45:31; MICA reports 15:45
 ```
 
-Other sources such as the Purple Mountain Observatory, China, and National Astronomical Observatory of Japan round the time off to the nearest minute. Reason why MICA does not round them off is unknown. This programme will round the time off to the nearest minute or mostly second, if available.
+Other sources such as the Purple Mountain Observatory, China, and National Astronomical Observatory of Japan round the time off to the nearest minute. Reason why MICA does not round them off is unknown. This program will round the time off to the nearest minute or mostly second, if available.
 
-**Defination of Conjunction**
+**Definition of Conjunction**
 
 MICA defines planetary conjunction as the objects (planet + moon/planet + planet) share the same right ascension. However, many other sources define planetary conjunction as the two planets share the same ecliptic longitude. In skyfield, both definitions can be used depending on how it is written. However, conjunction is not used as default, please see the contents below.
 
 **Conjunction vs Appulse**
 
-Conjunction is not defined as the closest angular separation between two objects. However, only the closest moments are of interest to the public. Hence, in this programme, the closest angular separation, or appulse, is reported rather than conjunction. Please find an example below where a lunar occultation of Uranus happens (togehter with a tolar lunar eclipse) in Hong Kong. 
+Conjunction is not defined as the closest angular separation between two objects. However, only the closest moments are of interest to the public. Hence, in this program, the closest angular separation, or appulse, is reported rather than conjunction. Please find an example below where a lunar occultation of Uranus happens (together with a total lunar eclipse) in Hong Kong. 
 
 ```
 Occultation starts (disappearance): 18:58
@@ -141,7 +141,7 @@ The output file is named as Astro E-calendar [year] raw.xlsx. It is recommended 
  
 ## Level
 
-This programme distinguishes each astronomical event into different levels. Some events are defined as level 1 such as moon phases, while some other events like Moon at perigee, superior conjunction, etc, are level 3. Considerations are made for complicated events such as planetary appulse, for example:
+This program distinguishes each astronomical event into different levels. Some events are defined as level 1 such as moon phases, while some other events like Moon at perigee, superior conjunction, etc, are level 3. Considerations are made for complicated events such as planetary appulse, for example:
 
 ```python
 if int(earth.at(t).observe(planet_list_top[i]).phase_angle(sun).degrees) >150:
@@ -169,7 +169,7 @@ For Uranus and Neptune ( i.e.: j=5 and 6, defined in a python list), the events 
 
 - Solar Eclipse is not included. Please update manually.
 
-- Meteor shower data is obtained by reading HTML data from IMO website. It provides information of current year only. To get IMO's prediction, please check IMO's Meteor Shower Calendar. IMO has an API for programme access but it doesn't work well at the time of creating this programme.
+- Meteor shower data is obtained by reading HTML data from IMO website. It provides information of current year only. To get IMO's prediction, please check IMO's Meteor Shower Calendar. IMO has an API for program access but it doesn't work well at the time of creating this program.
 
 - The coordinates of stars (RA, DEC) are referred to their position in 2022. For higher precision appusle between stars, occultation, etc, please update the coordinates manually to obtain J(now), it can be found online or from stellarium. By specifying their proper motion, the latest coordinates can be computed in future update.
 
@@ -179,11 +179,11 @@ For Uranus and Neptune ( i.e.: j=5 and 6, defined in a python list), the events 
 ```python
 if  ti.astimezone(HKT).month == 1:
 ```
-To find the latest sunset, only January is considered in this programme as the latest sunset in Hong Kong is always within January.
+To find the latest sunset, only January is considered in this program as the latest sunset in Hong Kong is always within January.
 ```python
 if  ti.astimezone(HKT).month== 6 or ti.astimezone(HKT).month== 7:
  ```
-As an example, if an event may occur in June or July, the programme should be written as above.
+As an example, if an event may occur in June or July, the program should be written as above.
 
 - Excel reads time as 0 to 1. So you can see a decimal number in the time column. You can adjust its format in excel.
 
