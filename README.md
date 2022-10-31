@@ -1,9 +1,9 @@
 # Astronomical Events List Generator
-To generate a list of astronomical events (except solar eclipse) within a specified time range (e.g.: 1/1/2023 - 31/12/2023) and save it into an excel file. This excel file is made according to the Astro e-calander of the Hong Kong Space Museum.
+To generate a list of astronomical events (except solar eclipse) within a specified time range (e.g.: 1/1/2023 - 31/12/2023) and save it into an excel file. This excel file is formatted according to the Astro e-calander of the Hong Kong Space Museum.
 
 ## How to run
 
-Download all the above files from the button “Code” -> Download ZIP. Unzip the folder and put all .py files under the same folder.
+Download all the above files from the button “Code” -> “Download ZIP”. Unzip the folder and place all .py files under the same folder.
 
 Python programming language has to be installed on the computer. For simplicity, the user may install the Anaconda Distribution which includes the latest python versions and many useful python modules including jupyter, Numpy, pandas, Spyder, etc. To install Anaconda, please go to
 https://www.anaconda.com
@@ -36,19 +36,19 @@ pip install pandas
 pip install bs4
 ```
 
-Whenever the `ModuleNotFoundError` appears, you can install the module by typing “ pip install [module name]”, then the program should be able to proceed.
+Whenever the `ModuleNotFoundError` appears, you can install the module by typing “pip install [module name]”, then the program should be able to proceed.
 
-If Python is installed in another way where the Anaconda Distribution is not used, the above modules have to be installed from the terminal or command prompt (cmd). However, if the modules are installed into a different root/directory/environment other than the python program itself, these modules cannot be located when the program executes. The safest way is to execute the program first and let the computer tell you which module is absent, then install the module from the same command window.
+If Python is installed in another way where the Anaconda Distribution is not used, the above modules have to be installed from the terminal or command prompt (cmd). However, if the modules are installed into a different root/directory/environment other than the python program itself, these modules cannot be located when the programme executes. The safest way is to execute the program first and let the computer tell you which module is absent, then install the module from the same command window.
 
-If everything is correct, you should be able to see the astronomical data from the command window, and an Astro E-calendar [year] raw.xlsx will be saved under the same folder of the .py files.
+If everything is correct, you should be able to see the astronomical data from the command window, and an Astro E-calendar [year] raw.xlsx will be saved under the same folder with the .py files.
 
 
-## Ephemeris
+## Ephemerides 
 
-Ephemeris data are computed based on an ephemeris. Here the NASA JPL Planetary and Lunar Ephemerides DE440 is used. For more information about DEXXX, please visit:
+Ephemerides data are computed based on an ephemeris. Here the NASA JPL Planetary and Lunar Ephemerides DE440 is used. For more information about DEXXX, please visit:
 https://ssd.jpl.nasa.gov/planets/eph_export.html
 
-The ephemeris file will be downloaded when the program runs. To compute the data based on another ephemeris, for example, to simulate MICA(version 2.2.2)'s result, DE405 has to be used by modifying the ephemeris name as:
+The ephemeris file will be downloaded when the programme runs. To compute the data based on another ephemeris, for example, to simulate MICA(version 2.2.2)'s result, DE405 has to be used by modifying the ephemeris name as:
 ```python
 eph = api.load('de405.bsp')
 ```
@@ -56,7 +56,7 @@ Then the program will download DE405 and compute the data based on that ephemeri
 
 ## Meteor shower data
 
-The meteor shower data (Quadrantids, Perseids, Geminids, Lyrids, Orionids, Leonids) are obtained by reading the HTML data from the IMO website: https://www.imo.net/members/imo_showers/working_shower_list
+The meteor shower data (Quadrantids, Perseids, Geminids, Lyrids, Orionids, Leonids) are obtained by reading the HTML data from IMO website: https://www.imo.net/members/imo_showers/working_shower_list
 
 User has to update the format of the dates (e.g.: 13Aug2022 -> 2022-08-13) manually and input the predicted peak time from the IMO’s Meteor Shower Calendar (pdf document form IMO’s resources page).
 
@@ -69,7 +69,7 @@ This program uses a python module - Skyfield where most of its generated data fi
 
 **Rounding of number**
 
-It was found that MICA does the rounding incorrectly sometime. Please observe the following events:
+It was found that MICA rounds off incorrectly sometimes. Please observe the following events:
 
 ```
 Full moon 2023-4-6 12:34:31; MICA reports 12:34
@@ -169,7 +169,7 @@ For Uranus and Neptune ( i.e.: j=5 and 6, defined in a python list), the events 
 
 - Solar Eclipse is not included. Please update manually.
 
-- Meteor shower data is obtained by reading HTML data from IMO website. It provides information of current year only. To get IMO's prediction, please check IMO's Meteor Shower Calendar. IMO has an API for program access but it doesn't work well at the time of creating this program.
+- Meteor shower data is obtained by reading HTML data from the IMO website. It provides information of current year only. To get IMO's prediction, please check IMO's Meteor Shower Calendar. IMO has an API for program access but it doesn't work well at the time of creating this program.
 
 - The coordinates of stars (RA, DEC) are referred to their position in 2022. For higher precision appusle between stars, occultation, etc, please update the coordinates manually to obtain J(now), it can be found online or from stellarium. By specifying their proper motion, the latest coordinates can be computed in future update.
 
