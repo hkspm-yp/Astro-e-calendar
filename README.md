@@ -1,6 +1,13 @@
 # Astronomical Events List Generator
 To generate a list of astronomical events (except solar eclipse) within a specified time range (e.g.: 1/1/2023 - 31/12/2023) and save it into an excel file. This excel file is formatted according to the Astro e-calander of the Hong Kong Space Museum.
 
+New update:
+1. A csv file for google calendar will also be saved. Before import into google calendar, user has to open the file using Excel and check the following:
+    - Add solar eclipses data if required.
+    - Change the format of "Start Time and "End Time" so that it appears HH:MM:SS in excel.
+    - Change the format of "Start Date" and "End Date" of all meteor shower events so that it appears DD/MM/YYYY in excel.
+    - Update the description of meteor shower events, including the latest ZHR from IMO website.
+
 ## How to run
 
 Download all the above files from the button “Code” -> “Download ZIP”. Unzip the folder and place all .py files under the same folder.
