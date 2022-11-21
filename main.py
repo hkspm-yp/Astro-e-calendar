@@ -66,3 +66,18 @@ if __name__ == '__main__':
         )
     pd.DataFrame(list0).to_excel('Astro E-calendar '+ str(year) +' raw.xlsx', header=False, index=False)
     print('Astro E-calendar '+ str(year) +' raw.xlsx is saved. Please input solar eclipse information and update the meteor shower information.')
+    
+    df_google[1] = pd.DataFrame(list0)[0]+ ' ' + pd.DataFrame(list0)[1]
+    df_google[2] = pd.DataFrame(list0)[4]
+    df_google[3] = pd.DataFrame(list0)[2]
+    df_google[4] = pd.DataFrame(list0)[3]
+    df_google[5] = pd.DataFrame(list0)[2] 
+    df_google[6] = pd.DataFrame(list0)[3]
+    df_google[1][0]='Subject'
+    df_google[2][0]='Description'
+    df_google[3][0]='Start Date'    
+    df_google[4][0]='Start Time'
+    df_google[5][0]='End Date'    
+    df_google[6][0]='End Time'
+    df_google.to_csv('Astro E-calendar_for google calendar '+ str(year) +' raw.csv', encoding='utf-8_sig', header=False, index=False)
+    print('Astro E-calendar for google calendar '+ str(year) +' raw.csv is saved. Please input solar eclipse information and update the meteor shower information.')
