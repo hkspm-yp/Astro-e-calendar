@@ -86,6 +86,7 @@ Full moon 2023-4-20 12:12:32; MICA 12:12
 Full moon 2023-9-29 17:57:32; MICA 12:57
 Neptune Moon Conjunction 2023-11-22 15:45:31; MICA 15:45
 Summer solstice 2026-6-21 16:24:30.345; MICA 16:24
+惊蛰 2027-03-06 3:39:32; MICA 3:39:26
 Autumnal Equinox 2029-9-23 1:38:30.235; MICA 1:38
 Vernal Equinox 2034-3-20 21:17:30.431, MICA 21:17
 ```
