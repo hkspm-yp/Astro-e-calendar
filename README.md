@@ -79,16 +79,12 @@ This program uses a python module - Skyfield where most of its generated data fi
 It was found that MICA rounds off incorrectly sometimes. Please observe the following events:
 
 ```
-Sunset 2021-7-3 19:11:30; MICA 19:11; NAOJ:19:12
-Full moon 2021-12-19 12:35:30; MICA 12:35; NAOJ 12:36, China 12:36
+Sunset 2021-7-3 19:11:30; MICA 19:11; NAOJ:19:12 (may due to Delta T)
+Full moon 2021-12-19 12:35:30; MICA 12:35; NAOJ 12:36, China 12:36  (may due to Delta T)
 Full moon 2023-4-6 12:34:31; MICA 12:34
 Full moon 2023-4-20 12:12:32; MICA 12:12
 Full moon 2023-9-29 17:57:32; MICA 12:57
 Neptune Moon Conjunction 2023-11-22 15:45:31; MICA 15:45
-Summer solstice 2026-6-21 16:24:30.345; MICA 16:24
-惊蛰 2027-03-06 3:39:32; MICA 3:39:26
-Autumnal Equinox 2029-9-23 1:38:30.235; MICA 1:38
-Vernal Equinox 2034-3-20 21:17:30.431, MICA 21:17
 ```
 
 Other sources such as the Purple Mountain Observatory, China, and National Astronomical Observatory of Japan round the time off to the nearest minute. Reason why MICA does not round them off is unknown. This program will round the time off to the nearest minute or mostly second, if available.
