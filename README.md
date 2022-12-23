@@ -39,7 +39,7 @@ t0 = ts.utc(year, 1, 1) - 1/3
 t1 = ts.utc(year, 1, 3) - 1/3
 ```
 
-Then, only data for 2 days will be generated. If it is the first time to run the program, internet connection is required for it to download the ephemeris (e.g.:DE440.bsp). If `ModuleNotFoundError` appears, install the python modules by typing the following commands in Spyder’s terminal.
+Then, only data for 2 days will be generated. If it is the first time to run the program, internet connection is required for it to download the ephemeris (e.g.:DE440.bsp). If `ModuleNotFoundError` appears, install the python modules by typing/copying the following commands in Spyder’s console and press Enter.
 
 ```python
 pip install skyfield
