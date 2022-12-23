@@ -97,4 +97,4 @@ if __name__ == '__main__':
     df_google[5][0]='End Date'    
     df_google[6][0]='End Time'
     df_google.to_csv('Astro E-calendar for google calendar '+ str(year) +' raw.csv', encoding='utf-8_sig', header=False, index=False)
-    print('Astro E-calendar for google calendar '+ str(year) +' raw.csv is saved.Please change the time format in Excel and update the data for solar eclipses and meteor showers.'')
+    print('Astro E-calendar for google calendar '+ str(year) +' raw.csv is saved. Please change the time format in Excel and update the data for solar eclipses and meteor showers.')
