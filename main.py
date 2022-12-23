@@ -47,7 +47,7 @@ if __name__ == '__main__':
     
     from all_year_sunrise_sunset import*
     from twilight import*
-    from planet_rise_set import*
+    from planet_moon_rise_set import*
     list0.extend(
         # list_meteor_shower +
         # list_SEASON_EVENTS 
