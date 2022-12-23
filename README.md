@@ -32,8 +32,14 @@ ts = api.load.timescale()
 eph = api.load('de440.bsp')
 ...
 ```
+While the program runs, the main.py will call other .py files in the same folder. Pleaes check the "Output selection" paragraph below before you run main.py. For trial purpose, you can set a shorter time period such as:
 
-You can try to run “main.py” in Spyder. If `ModuleNotFoundError` appears, install the python modules by typing the following commands in Spyder’s terminal.
+```
+t0 = ts.utc(year, 1, 1) - 1/3
+t1 = ts.utc(year, 1, 3) - 1/3
+```
+
+Then, only data for 2 days will be generated. If it is the first time to run the program,  internet connection is required for it to download the ephemeris (e.g.:DE440.bin). If `ModuleNotFoundError` appears, install the python modules by typing the following commands in Spyder’s terminal.
 
 ```python
 pip install skyfield
