@@ -10,7 +10,7 @@ New update:
 2. Added new files:
     - twilight.py : provide the time of astronomical twilight starts and ends.
     - all_year_sunrise_sunset.py: provide the time of sunrise and sunset.
-    - planet_rise_set.py: :provide the rise time and set time of all planets.
+    - planet_moon_rise_set.py: :provide the rise time and set time of all planets and the Moon.
     - Rise, set and twilight.xlsx: Generated results for 2023 of the above times. Saved in the output folder.
     
 ## How to run
