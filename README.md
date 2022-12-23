@@ -1,5 +1,5 @@
 # Astronomical Events List Generator
-To generate a list of astronomical events (except solar eclipse) within a specified time range (e.g.: 1/1/2023 - 31/12/2023) and save it into an excel file. This excel file is formatted according to the Astro e-calander of the Hong Kong Space Museum.
+To generate a list of astronomical events (except solar eclipse) within a specified time range (e.g.: 1/1/2023 - 31/12/2023) and save it into an excel file. This excel file is formatted according to the Astro e-calender of the Hong Kong Space Museum.
 
 New update:
 1. A .CSV file for google calendar will also be saved. Before importing into google calendar, user has to open the file using Excel and check the following:
@@ -8,9 +8,9 @@ New update:
     - Change the format of "Start Date" and "End Date" of all meteor shower events so that it appears DD/MM/YYYY in Excel.
     - Update the description of meteor shower events, including the latest ZHR from IMO website.
 2. Added new files:
-    - twilight.py : provide the time of astronomical twilight starts and ends.
+    - twilight.py: provide the time of astronomical twilight starts and ends.
     - all_year_sunrise_sunset.py: provide the time of sunrise and sunset.
-    - planet_moon_rise_set.py: :provide the rise time and set time of all planets and the Moon.
+    - planet_moon_rise_set.py: provide the rise time and set time of all planets and the Moon.
     - Rise, set and twilight.xlsx: Generated results for 2023 of the above times. Saved in the output folder.
     
 ## How to run
@@ -32,14 +32,14 @@ ts = api.load.timescale()
 eph = api.load('de440.bsp')
 ...
 ```
-While the program runs, the main.py will call other .py files in the same folder. Pleaes check the "Output selection" paragraph below before you run main.py. For trial purpose, you can set a shorter time period such as:
+While the program runs, the main.py will call other .py files in the same folder. Check the "Output selection" paragraph below before you run main.py. For trial purpose, you can set a shorter time period such as:
 
 ```python
 t0 = ts.utc(year, 1, 1) - 1/3
 t1 = ts.utc(year, 1, 3) - 1/3
 ```
 
-Then, only data for 2 days will be generated. If it is the first time to run the program,  internet connection is required for it to download the ephemeris (e.g.:DE440.bin). If `ModuleNotFoundError` appears, install the python modules by typing the following commands in Spyder’s terminal.
+Then, only data for 2 days will be generated. If it is the first time to run the program, internet connection is required for it to download the ephemeris (e.g.:DE440.bin). If `ModuleNotFoundError` appears, install the python modules by typing the following commands in Spyder’s terminal.
 
 ```python
 pip install skyfield
@@ -56,7 +56,7 @@ pip install bs4
 
 Whenever the `ModuleNotFoundError` appears, you can install the module by typing “pip install [module name]”, then the program should be able to proceed.
 
-If Python is installed in another way where the Anaconda Distribution is not used, the above modules have to be installed from the terminal or command prompt (cmd). However, if the modules are installed into a different root/directory/environment other than the python program itself, these modules cannot be located when the programme executes. The safest way is to execute the program first and let the computer tell you which module is absent, then install the module from the same command window.
+If Python is installed in another way where the Anaconda Distribution is not used, the above modules have to be installed from the terminal or command prompt (cmd). However, if the modules are installed into a different root/directory/environment other than the python program itself, these modules cannot be located when the program is executed. The safest way is to execute the program first and let the computer tell you which module is absent, then install the module from the same command window.
 
 If everything is correct, you should be able to see the astronomical data from the command window, and an Astro E-calendar [year] raw.xlsx will be saved under the same folder with the .py files.
 
@@ -90,8 +90,8 @@ This program uses a python module - Skyfield where most of its generated data fi
 It was found that MICA rounds off incorrectly sometimes. Please observe the following events:
 
 ```
-Sunset 2021-7-3 19:11:30; MICA 19:11; NAOJ:19:12 (may due to Delta T)
-Full moon 2021-12-19 12:35:30; MICA 12:35; NAOJ 12:36, China 12:36  (may due to Delta T)
+Sunset 2021-7-3 19:11:30; MICA 19:11; NAOJ: 19:12 (may due to Delta T)
+Full moon 2021-12-19 12:35:30; MICA 12:35; NAOJ 12:36, China 12:36 (may due to Delta T)
 Full moon 2023-4-6 12:34:31; MICA 12:34
 Full moon 2023-4-20 12:12:32; MICA 12:12
 Full moon 2023-9-29 17:57:32; MICA 12:57
@@ -182,7 +182,7 @@ If the angular separation between the Sun and the first planet is between 30 deg
 
 In the remaining case where the angular separation between the Sun and the first planet is larger than 60 degrees, the events will always be marked as level 1.
 
-For Uranus and Neptune ( i.e.: j=5 and 6, defined in a python list), the events will always be marked as level 3.
+For Uranus and Neptune (i.e.: j=5 and 6, defined in a python list), the events will always be marked as level 3.
 
 
 ## Remarks, Limitations and Possible Future Updates
