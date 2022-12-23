@@ -135,19 +135,23 @@ The main.py will import and execute other .py file and generate an .xlsx file. T
 if __name__ == '__main__':
     from season_events import *    
     from moon_phase import *    
+    ...
     list0.extend(
         list_SEASON_EVENTS +
         list_moon_phases
+        ...
         )
  ```
 Only the data of seasonal points and moon phases will be generated.
 ```python
 if __name__ == '__main__':
     from season_events import *    
-#    from moon_phase import *    
+#   from moon_phase import *    
+    ...
     list0.extend(
         list_SEASON_EVENTS
-#        list_moon_phases
+#       list_moon_phases
+        ...
         )
  ```
 Only the data of seasonal points will be generated. Remember to delete the "+" if the comment line is the last line.
