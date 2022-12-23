@@ -8,10 +8,10 @@ New update:
     - Change the format of "Start Date" and "End Date" of all meteor shower events so that it appears DD/MM/YYYY in Excel.
     - Update the description of meteor shower events, including the latest ZHR from IMO website.
 2. Added new files:
-    twilight.py : provide the time of astronomical twilight starts and ends.
-    all_year_sunrise_sunset.py: provide the time of sunrise and sunset.
-    planet_rise_set.py: :provide the rise time and set time of all plaents.
-    Rise, set and twilight.xlsx: Generated results for 2023 of the above times. Saved in the output folder.
+    - twilight.py : provide the time of astronomical twilight starts and ends.
+    - all_year_sunrise_sunset.py: provide the time of sunrise and sunset.
+    - planet_rise_set.py: :provide the rise time and set time of all plaents.
+    - Rise, set and twilight.xlsx: Generated results for 2023 of the above times. Saved in the output folder.
     
 ## How to run
 
