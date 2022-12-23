@@ -147,11 +147,11 @@ Only the data of seasonal points and moon phases will be generated.
 if __name__ == '__main__':
     from season_events import *    
 #   from moon_phase import *    
-    ...
+#    ...
     list0.extend(
         list_SEASON_EVENTS
 #       list_moon_phases +
-        ...
+#        ...
         )
  ```
 Only the data of seasonal points will be generated. Remember to delete the "+" if the comment line is the last line.
