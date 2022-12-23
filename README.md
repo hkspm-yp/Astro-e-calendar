@@ -34,7 +34,7 @@ eph = api.load('de440.bsp')
 ```
 While the program runs, the main.py will call other .py files in the same folder. Pleaes check the "Output selection" paragraph below before you run main.py. For trial purpose, you can set a shorter time period such as:
 
-```
+```python
 t0 = ts.utc(year, 1, 1) - 1/3
 t1 = ts.utc(year, 1, 3) - 1/3
 ```
