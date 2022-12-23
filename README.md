@@ -138,7 +138,7 @@ if __name__ == '__main__':
     ...
     list0.extend(
         list_SEASON_EVENTS +
-        list_moon_phases
+        list_moon_phases +
         ...
         )
  ```
@@ -150,7 +150,7 @@ if __name__ == '__main__':
     ...
     list0.extend(
         list_SEASON_EVENTS
-#       list_moon_phases
+#       list_moon_phases +
         ...
         )
  ```
