@@ -58,7 +58,12 @@ Whenever the `ModuleNotFoundError` appears, you can install the module by typing
 
 If Python is installed in another way where the Anaconda Distribution is not used, the above modules have to be installed from the terminal or command prompt (cmd). However, if the modules are installed into a different root/directory/environment other than the python program itself, these modules cannot be located when the program is executed. The safest way is to execute the program first and let the computer tell you which module is absent, then install the module from the same command window.
 
-If everything is correct, you should be able to see the astronomical data from the command window, and an Astro E-calendar [year] raw.xlsx will be saved under the same folder with the .py files.
+If everything is correct, you should be able to see the astronomical data from the command window, and an Astro E-calendar [year] raw.xlsx will be saved under the same folder with the .py files. Adjust the time range to generate all the data you want, such as:
+
+```python
+t0 = ts.utc(year, 1, 1) - 1/3
+t1 = ts.utc(year, 12, 31) - 1/3
+```
 
 
 ## Ephemerides 
