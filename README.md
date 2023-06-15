@@ -224,15 +224,13 @@ As an example, if an event may occur in June or July, the program should be writ
 
 Show the moment of smallest separation between the Moon and the planets under the following conditions:
 
-    - the separation is less than 1 degree;
- 
-    - the moon is above the horizon; 
- 
-    - The Sun is 15 degrees below the horizon.
+1. Separation is less than 1 degree;
+2. The moon is above the horizon;
+3. The Sun is 15 degrees below the horizon.
  
  When the separation is less than the apparent radius of the moon. A remark "Occultation" will be shown. For examples:
  
-  '天王星、月球最小角距(掩)', 'Uranus-Moon Appulse(Occultation)', datetime.date(2022, 11, 8)... 
+'天王星、月球最小角距(掩)', 'Uranus-Moon Appulse(Occultation)', datetime.date(2022, 11, 8)... 
   
  '金星、月球最小角距(掩)', 'Venus-Moon Appulse(Occultation)', datetime.date(2023, 3, 24)... 
 
