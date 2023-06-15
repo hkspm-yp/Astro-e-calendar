@@ -71,7 +71,7 @@ t1 = ts.utc(year, 12, 31) - 1/3
 Ephemerides data are computed based on an ephemeris. Here the NASA JPL Planetary and Lunar Ephemerides DE440 is used. For more information about DEXXX, please visit:
 https://ssd.jpl.nasa.gov/planets/eph_export.html
 
-The ephemeris file will be downloaded when the programme runs. To compute the data based on another ephemeris, for example, to simulate MICA(version 2.2.2)'s result, DE405 has to be used by modifying the ephemeris name as:
+The ephemeris file will be downloaded when the program runs. To compute the data based on another ephemeris, for example, to simulate MICA(version 2.2.2)'s result, DE405 has to be used by modifying the ephemeris name as:
 ```python
 eph = api.load('de405.bsp')
 ```
@@ -95,8 +95,8 @@ This program uses a python module - Skyfield where most of its generated data fi
 It was found that MICA rounds off incorrectly sometimes. Please observe the following events:
 
 ```
-Sunset 2021-7-3 19:11:30; MICA 19:11; NAOJ: 19:12 (may due to Delta T)
-Full moon 2021-12-19 12:35:30; MICA 12:35; NAOJ 12:36, China 12:36 (may due to Delta T)
+Sunset 2021-7-3 19:11:30; MICA 19:11; NAOJ: 19:12 (may be due to Delta T)
+Full moon 2021-12-19 12:35:30; MICA 12:35; NAOJ 12:36, China 12:36 (may be due to Delta T)
 Full moon 2023-4-6 12:34:31; MICA 12:34
 Full moon 2023-4-20 12:12:32; MICA 12:12
 Full moon 2023-9-29 17:57:32; MICA 12:57
@@ -105,13 +105,9 @@ Neptune Moon Conjunction 2023-11-22 15:45:31; MICA 15:45
 
 Other sources such as the Purple Mountain Observatory, China, and National Astronomical Observatory of Japan round the time off to the nearest minute. Reason why MICA does not round them off is unknown. This program will round the time off to the nearest minute or mostly second, if available.
 
-**Definition of Conjunction**
+**Conjunction and Appulse**
 
-MICA defines planetary conjunction as the objects (planet + moon/planet + planet) share the same right ascension. However, many other sources define planetary conjunction as the two planets share the same ecliptic longitude. In skyfield, both definitions can be used depending on how it is written. However, conjunction is not used as default, please see the contents below.
-
-**Conjunction vs Appulse**
-
-Conjunction is not defined as the closest angular separation between two objects. However, only the closest moments are of interest to the public. Hence, in this program, the closest angular separation, or appulse, is reported rather than conjunction. Please find an example below where a lunar occultation of Uranus happens (together with a total lunar eclipse) in Hong Kong. 
+Conjunction is not defined as the closest angular separation between two objects. However, in some situations, it is worth listing the moment of appulse, especially when an occultation happens. For example, a lunar occultation of Uranus looks like this: 
 
 ```
 Occultation starts (disappearance): 18:58
@@ -119,7 +115,7 @@ Occultation ends (reappearance): 19:47
 Uranus Moon Conjunction (right ascension): 21:11
 ```
 
-The conjunction event happens after the reappearance of Uranus, meaning that Uranus will have already left the moon disc completely. It is obvious that Uranus has already passed the closest separation to the moon. However, if appulse is used to replace conjunction, then we have:
+The conjunction happens after the reappearance of Uranus, meaning that Uranus has already left the moon disc completely. Here, we add the prediction of appulse: 
 
 ```
 Occultation starts (disappearance): 18:58
