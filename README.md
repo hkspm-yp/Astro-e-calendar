@@ -217,3 +217,27 @@ As an example, if an event may occur in June or July, the program should be writ
 - Excel reads time as 0 to 1. So you can see a decimal number in the time column. You can adjust its format in excel.
 
 - For enquiry, please contact Mr. CHAN Chun-lam (chlchan@lcsd.gov.hk).
+
+## Explanation
+
+**lunar_appulse.py**
+
+Show the moment of smallest separation between the Moon and the planets under the following conditions:
+
+    - the separation is less than 1 degree;
+ 
+    - the moon is above the horizon; 
+ 
+    - The Sun is 15 degrees below the horizon.
+ 
+ When the separation is less than the apparent radius of the moon. A remark "Occultation" will be shown. For examples:
+ 
+  '天王星、月球最小角距(掩)', 'Uranus-Moon Appulse(Occultation)', datetime.date(2022, 11, 8)... 
+  
+ '金星、月球最小角距(掩)', 'Venus-Moon Appulse(Occultation)', datetime.date(2023, 3, 24)... 
+
+ '火星、月球最小角距', 'Mars-Moon Appulse', datetime.date(2025, 6, 1)... 
+ 
+ '木星、月球最小角距(掩)', 'Jupiter-Moon Appulse(Occultation)', datetime.date(2034, 10, 25)... 
+ 
+ '土星、月球最小角距(掩)', 'Saturn-Moon Appulse(Occultation)', datetime.date(2037, 2, 2)...
