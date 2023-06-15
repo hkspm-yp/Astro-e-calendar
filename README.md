@@ -191,20 +191,21 @@ If the angular separation between the Sun and the first planet is between 30 deg
 
 In the remaining case where the angular separation between the Sun and the first planet is larger than 60 degrees, the events will always be marked as level 1.
 
-For Uranus and Neptune (i.e.: j=5 and 6, defined in a python list), the events will always be marked as level 3.
+For Uranus and Neptune (i.e.: j=5 and 6, defined in a Python list), the events will always be marked as level 3.
 
 ## Updates
 
-- Solar Eclipse is included, but please see the explanation.
+- Solar eclipse is included, but please see the explanation below.
+- Lunar appulse is limited to specific conditions, please see the explanation below. 
 
 ## Remarks, Limitations and Possible Future Updates
 
 
-- Meteor shower data is obtained by reading HTML data from the IMO website. It provides information of current year only. To get IMO's prediction, please check IMO's Meteor Shower Calendar. IMO has an API for program access but it doesn't work well at the time of creating this program.
+- Meteor shower data is obtained by reading HTML data from the IMO website. It provides information on the current year only. To get IMO's prediction, please check IMO's Meteor Shower Calendar.
 
-- The coordinates of stars (RA, DEC) are referred to their position in 2022. For higher precision appusle between stars, occultation, etc, please update the coordinates manually to obtain J(now), it can be found online or from Stellarium. By specifying their proper motion, the latest coordinates can be computed in future update.
+- The coordinates of stars (RA, DEC) are referred to their position in 2022. For higher precision appulse between stars, occultation, etc, please update the coordinates manually to obtain J(now), it can be found online or from Stellarium. By specifying their proper motion, the latest coordinates can be computed in future updates.
 
-- An occultation event will be marked if the appusle between the stars or planets and the moon is less than 0.25 degrees. This number can be refined.
+- An occultation event will be marked if the appulse between the stars or planets and the moon is less than 0.25 degrees. This number can be refined.
 
 - The earliest or latest sunrise and sunset time are not the same for different latitudes.
 ```python
@@ -216,7 +217,7 @@ if  ti.astimezone(HKT).month== 6 or ti.astimezone(HKT).month== 7:
  ```
 As an example, if an event may occur in June or July, the program should be written as above.
 
-- Excel reads time as 0 to 1. So you can see a decimal number in the time column. You can adjust its format in excel.
+- Excel reads time as 0 to 1. So you can see a decimal number in the time column. You can adjust its format in Excel.
 
 - For enquiry, please contact Mr. CHAN Chun-lam (chlchan@lcsd.gov.hk).
 
