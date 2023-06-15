@@ -12,6 +12,8 @@ New update:
     - all_year_sunrise_sunset.py: provide the time of sunrise and sunset.
     - planet_moon_rise_set.py: provide the rise time and set time of all planets and the Moon.
     - Rise, set and twilight.xlsx: Generated results for 2023 of the above times. Saved in the output folder.
+3. Solar eclipse is included, but please see the explanation below.
+4. Lunar appulse is limited to specific conditions, please see the explanation below. 
     
 ## How to run
 
@@ -188,11 +190,6 @@ If the angular separation between the Sun and the first planet is between 30 deg
 In the remaining case where the angular separation between the Sun and the first planet is larger than 60 degrees, the events will always be marked as level 1.
 
 For Uranus and Neptune (i.e.: j=5 and 6, defined in a Python list), the events will always be marked as level 3.
-
-## Updates
-
-- Solar eclipse is included, but please see the explanation below.
-- Lunar appulse is limited to specific conditions, please see the explanation below. 
 
 ## Remarks, Limitations and Possible Future Updates
 
