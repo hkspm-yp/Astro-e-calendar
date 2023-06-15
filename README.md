@@ -247,3 +247,7 @@ Show the moment of smallest separation between the Moon and the planets under th
  '木星、月球最小角距(掩)', 'Jupiter-Moon Appulse(Occultation)', datetime.date(2034, 10, 25)... 
  
  '土星、月球最小角距(掩)', 'Saturn-Moon Appulse(Occultation)', datetime.date(2037, 2, 2)...
+ 
+**moon_apogee_perigee.py**
+
+Find the exact moment when the Moon is farthest (apogee) or nearest(perigee) from the Earth, without considering the time of light to travel from the Moon to the Earth. In order words, it is not the apparent moment when the Moon is at the farthest or nearest. This program calculates the geometric position of the moon, not the astrometric, but users are able to change it in this file.
