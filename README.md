@@ -225,8 +225,9 @@ Find the moment when the moon touches the limb of the Sun. Solar eclipse predict
 Find the moment when the moon touches the edge of the Earth's umbra and penumbra. Lunar eclipse prediction depends on how you "select" the radius of the moon. Here, the IAU adopted value k = 0.2725076 is used as default, where Moon's radius = Earth's radius x k. Users may change the parameter to achieve better prediction.
 
 **lunar_appulse.py**
+**stars_lunar_appulse.py**
 
-Show the moment of smallest separation between the Moon and the planets under the following conditions:
+Show the moment of smallest separation between the Moon and the planets or stars under the following conditions:
 
 1. Separation is less than 1 degree;
 2. The moon is above the horizon;
@@ -243,6 +244,10 @@ Show the moment of smallest separation between the Moon and the planets under th
  '木星、月球最小角距(掩)', 'Jupiter-Moon Appulse(Occultation)', datetime.date(2034, 10, 25)... 
  
  '土星、月球最小角距(掩)', 'Saturn-Moon Appulse(Occultation)', datetime.date(2037, 2, 2)...
+
+**planetary_appulse.py**
+
+Show the smallest angular separation between two planets, only separation predictions less than 5 degrees are considered as large angle planetary appulse between the inner planets and outer planets occur often. Obviously, the predicted data are close to those in "planetary_conjunctions_RA.py".
  
 **moon_apogee_perigee.py**
 
