@@ -222,6 +222,7 @@ As an example, if an event may occur in June or July, the program should be writ
 
 
 **lunar_eclipse.py**
+
 Find the moment when the moon touches the edge of the Earth's umbra and penumbra. Lunar eclipse prediction depends on how you "select" the radius of the moon. Here, the IAU adopted value k = 0.2725076 is used as default, where Moon's radius = Earth's radius x k. Users may change the parameter to achieve better prediction.
 
 
