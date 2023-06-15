@@ -1,8 +1,8 @@
 # Astronomical Events List Generator
-To generate a list of astronomical events (except solar eclipse) within a specified time range (e.g.: 1/1/2023 - 31/12/2023) and save it into an excel file. This excel file is formatted according to the Astro e-calender of the Hong Kong Space Museum.
+To generate a list of astronomical events within a specified time range (e.g.: 1/1/2023 - 31/12/2023) and save it into an Excel file. This Excel file is formatted according to the Astro e-calender of the Hong Kong Space Museum.
 
 New update:
-1. A .CSV file for google calendar will also be saved. Before importing into google calendar, user has to open the file using Excel and check the following:
+1. A .CSV file for google calendar will also be saved. Before importing into google calendar, users have to open the file using Excel and check the following:
     - Add solar eclipses and update lunar eclipses data if required.
     - Change the format of "Start Time and "End Time" so that it appears HH:MM:SS in Excel.
     - Change the format of "Start Date" and "End Date" of all meteor shower events so that it appears DD/MM/YYYY in Excel.
@@ -17,7 +17,7 @@ New update:
 
 Download all the above files from the button “Code” -> “Download ZIP”. Unzip the folder and place all .py files under the same folder.
 
-Python programming language has to be installed on the computer. For simplicity, the user may install the Anaconda Distribution which includes the latest python versions and many useful python modules including jupyter, Numpy, pandas, Spyder, etc. To install Anaconda, please go to
+Python programming language has to be installed on the computer. For simplicity, the user may install the Anaconda Distribution which includes the latest Python versions and many useful Python modules including jupyter, Numpy, pandas, Spyder, etc. To install Anaconda, please go to
 https://www.anaconda.com
 
 After installing Anaconda, open the Spyder software and load the file “main.py”. You should see something like this:
@@ -39,7 +39,7 @@ t0 = ts.utc(year, 1, 1) - 1/3
 t1 = ts.utc(year, 1, 3) - 1/3
 ```
 
-Then, only data for 2 days will be generated. If it is the first time to run the program, internet connection is required for it to download the ephemeris (e.g.:DE440.bsp). If `ModuleNotFoundError` appears, install the python modules by typing/copying the following commands in Spyder’s console and press Enter.
+Then, only data for 2 days will be generated. If it is the first time to run the program, internet connection is required for it to download the ephemeris (e.g.:DE440.bsp). If `ModuleNotFoundError` appears, install the Python modules by typing/copying the following commands in Spyder’s console and press Enter.
 
 ```python
 pip install skyfield
@@ -56,7 +56,7 @@ pip install bs4
 
 Whenever the `ModuleNotFoundError` appears, you can install the module by typing “pip install [module name]”, then the program should be able to proceed.
 
-If Python is installed in another way where the Anaconda Distribution is not used, the above modules have to be installed from the terminal or command prompt (cmd). However, if the modules are installed into a different root/directory/environment other than the python program itself, these modules cannot be located when the program is executed. The safest way is to execute the program first and let the computer tell you which module is absent, then install the module from the same command window.
+If Python is installed in another way where the Anaconda Distribution is not used, the above modules have to be installed from the terminal or command prompt (cmd). However, if the modules are installed into a different root/directory/environment other than the Python program itself, these modules cannot be located when the program is executed. The safest way is to execute the program first and let the computer tell you which module is absent, then install the module from the same command window.
 
 If everything is correct, you should be able to see the astronomical data from the command window, and an Astro E-calendar [year] raw.xlsx will be saved under the same folder with the .py files. Adjust the time range to generate all the data you want, such as:
 
@@ -81,14 +81,14 @@ Then the program will download DE405 and compute the data based on that ephemeri
 
 The meteor shower data (Quadrantids, Perseids, Geminids, Lyrids, Orionids, Leonids) are obtained by reading the HTML data from IMO website: https://www.imo.net/members/imo_showers/working_shower_list
 
-User has to update the format of the dates (e.g.: 13Aug2022 -> 2022-08-13) manually and input the predicted peak time from the IMO’s Meteor Shower Calendar (pdf document form IMO’s resources page).
+Users have to update the format of the dates (e.g.: 13Aug2022 -> 2022-08-13) manually and input the predicted peak time from the IMO’s Meteor Shower Calendar (pdf document from IMO’s resources page).
 
 If the format of this IMO website is changed, the program will generate incorrect information.
 
-Since the IMO website above provides the meteor shower of current year only, the program will always give the same result even another year is selected.
+Since the IMO website above provides the meteor shower of the current year only, the program will always give the same result even if another year is selected.
 
 ## Compare with MICA
-This program uses a python module - Skyfield where most of its generated data fit perfectly with MICA's output. However, there are some modifications as explained below:
+This program uses a Python module - Skyfield where most of its generated data fit perfectly with MICA's output. However, there are some modifications as explained below:
 
 **Rounding of number**
 
@@ -103,11 +103,11 @@ Full moon 2023-9-29 17:57:32; MICA 12:57
 Neptune Moon Conjunction 2023-11-22 15:45:31; MICA 15:45
 ```
 
-Other sources such as the Purple Mountain Observatory, China, and National Astronomical Observatory of Japan round the time off to the nearest minute. Reason why MICA does not round them off is unknown. This program will round the time off to the nearest minute or mostly second, if available.
+Other sources such as the Purple Mountain Observatory, China, and the National Astronomical Observatory of Japan round the time off to the nearest minute. The reason why MICA does not round them off is unknown. This program will round the time off to the nearest minute or mostly second, if available.
 
 **Conjunction and Appulse**
 
-Conjunction is not defined as the closest angular separation between two objects. However, in some situations, it is worth listing the moment of appulse, especially when an occultation happens. For example, a lunar occultation of Uranus looks like this: 
+A conjunction is not defined as the closest angular separation between two objects. However, in some situations, it is worth listing the moment of appulse, especially when an occultation happens. For example, a lunar occultation of Uranus looks like this: 
 
 ```
 Occultation starts (disappearance): 18:58
@@ -126,7 +126,7 @@ The sequence looks more intuitive, but MICA does not offer appulse. This program
 
 ## Output selection
 
-The main.py will import and execute other .py file and generate an .xlsx file. The user may reduce the number of events to be executed by making a code line as a comment. Such as:
+The main.py will import and execute other .py files and generate a .xlsx file. The user may reduce the number of events to be executed by making a code line as a comment. Such as:
 ```python
 if __name__ == '__main__':
     from season_events import *    
@@ -226,7 +226,6 @@ Find the moment when the moon touches the limb of the Sun. Solar eclipse predict
 **lunar_eclipse.py**
 
 Find the moment when the moon touches the edge of the Earth's umbra and penumbra. Lunar eclipse prediction depends on how you "select" the radius of the moon. Here, the IAU adopted value k = 0.2725076 is used as default, where Moon's radius = Earth's radius x k. Users may change the parameter to achieve better prediction.
-
 
 **lunar_appulse.py**
 
