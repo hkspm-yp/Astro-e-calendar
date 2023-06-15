@@ -193,10 +193,12 @@ In the remaining case where the angular separation between the Sun and the first
 
 For Uranus and Neptune (i.e.: j=5 and 6, defined in a python list), the events will always be marked as level 3.
 
+## Updates
+
+- Solar Eclipse is included, but please see the explanation.
 
 ## Remarks, Limitations and Possible Future Updates
 
-- Solar Eclipse is not included. Please update manually.
 
 - Meteor shower data is obtained by reading HTML data from the IMO website. It provides information of current year only. To get IMO's prediction, please check IMO's Meteor Shower Calendar. IMO has an API for program access but it doesn't work well at the time of creating this program.
 
@@ -220,6 +222,9 @@ As an example, if an event may occur in June or July, the program should be writ
 
 ## Explanation
 
+**solar_eclipse.py**
+
+Find the moment when the moon touches the limb of the Sun. Solar eclipse prediction depends on how you "select" the radius of the Sun and the Moon. Here, the nominal solar radius, Rs=695700, is adopted. The radius of the Moon is explained in the "lunar_eclipse.py" below. However, the prediction does not include total solar eclipse and annular solar eclipse as third contact and fourth contact between the Sun and the Moon are not included yet.
 
 **lunar_eclipse.py**
 
