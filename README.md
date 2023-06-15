@@ -122,7 +122,7 @@ Occultation starts (disappearance): 18:58
 Uranus Moon Appulse: 19:22
 Occultation ends (reappearance): 19:47
 ```
-The sequence looks more intuitive, but MICA does not offer appulse.
+The sequence looks more intuitive, but MICA does not offer appulse. This program offers predictions on conjunction and appulse, but please see the explanation session below about the condition of appulse.
 
 ## Output selection
 
