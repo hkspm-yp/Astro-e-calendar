@@ -200,7 +200,7 @@ For Uranus and Neptune (i.e.: j=5 and 6, defined in a python list), the events w
 
 - Meteor shower data is obtained by reading HTML data from the IMO website. It provides information of current year only. To get IMO's prediction, please check IMO's Meteor Shower Calendar. IMO has an API for program access but it doesn't work well at the time of creating this program.
 
-- The coordinates of stars (RA, DEC) are referred to their position in 2022. For higher precision appusle between stars, occultation, etc, please update the coordinates manually to obtain J(now), it can be found online or from stellarium. By specifying their proper motion, the latest coordinates can be computed in future update.
+- The coordinates of stars (RA, DEC) are referred to their position in 2022. For higher precision appusle between stars, occultation, etc, please update the coordinates manually to obtain J(now), it can be found online or from Stellarium. By specifying their proper motion, the latest coordinates can be computed in future update.
 
 - An occultation event will be marked if the appusle between the stars or planets and the moon is less than 0.25 degrees. This number can be refined.
 
@@ -220,13 +220,18 @@ As an example, if an event may occur in June or July, the program should be writ
 
 ## Explanation
 
+
+**lunar_eclipse.py**
+Find the moment when the moon touches the edge of the Earth's umbra and penumbra. Lunar eclipse prediction depends on how you "select" the radius of the moon. Here, the IAU adopted value k = 0.2725076 is used as default, where Moon's radius = Earth's radius x k. Users may change the parameter to achieve better prediction.
+
+
 **lunar_appulse.py**
 
 Show the moment of smallest separation between the Moon and the planets under the following conditions:
 
 1. Separation is less than 1 degree;
 2. The moon is above the horizon;
-3. The Sun is 15 degrees below the horizon.
+3. The Sun is at least 15 degrees below the horizon.
  
  When the separation is less than the apparent radius of the moon. A remark "Occultation" will be shown. For examples:
  
