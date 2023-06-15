@@ -4,9 +4,8 @@ from main import *
 from pytz import timezone
 
 def moon_distance(t):
-    e = earth.at(t)
-    m = moon.at(t)
-    #md = e.observe(moon)
+    # e = earth.at(t)
+    # md = e.observe(moon)
         #Astrometric ICRS position
     md=earth.at(t)-moon.at(t)
         #Geometric ICRS position
