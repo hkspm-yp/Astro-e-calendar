@@ -1,17 +1,16 @@
 # Astronomical Events List Generator
 To generate a list of astronomical events within a specified time range (e.g.: 1/1/2023 - 31/12/2023) and save it into an Excel file. This Excel file is formatted according to the Astro e-calender of the Hong Kong Space Museum.
 
-New update:
+New updates:
 1. A .CSV file for google calendar will also be saved. Before importing into google calendar, users have to open the file using Excel and check the following:
-    - Add solar eclipses and update lunar eclipses data if required.
-    - Change the format of "Start Time and "End Time" so that it appears HH:MM:SS in Excel.
-    - Change the format of "Start Date" and "End Date" of all meteor shower events so that it appears DD/MM/YYYY in Excel.
+    - Change the format of "Start Time and "End Time" so that it appears as HH:MM:SS in Excel.
+    - Change the format of "Start Date" and "End Date" of all meteor shower events so that it appears as DD/MM/YYYY in Excel.
     - Update the description of meteor shower events, including the latest ZHR from IMO website.
 2. Added new files:
-    - twilight.py: provide the time of astronomical twilight starts and ends.
+    - twilight.py: provide the time when the astronomical twilight starts and ends.
     - all_year_sunrise_sunset.py: provide the time of sunrise and sunset.
     - planet_moon_rise_set.py: provide the rise time and set time of all planets and the Moon.
-    - Rise, set and twilight.xlsx: Generated results for 2023 of the above times. Saved in the output folder.
+    - Rise, set and twilight.xlsx: Generated result of the above time information in 2023. Saved in the output folder.
 3. Solar eclipse is included, but please see the explanation below.
 4. Lunar appulse is limited to specific conditions, please see the explanation below. 
     
