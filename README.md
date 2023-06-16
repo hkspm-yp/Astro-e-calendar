@@ -218,22 +218,21 @@ As an example, if an event may occur in June or July, the program should be writ
 
 **solar_eclipse.py**
 
-Find the moment when the moon touches the limb of the Sun. Solar eclipse prediction depends on how you "select" the radius of the Sun and the Moon. Here, the nominal solar radius, Rs=695700, is adopted. The radius of the Moon is explained in the "lunar_eclipse.py" below. However, the prediction does not include total solar eclipse and annular solar eclipse as third contact and fourth contact between the Sun and the Moon are not included yet.
+Find the moment when the moon touches the limb of the Sun. Solar eclipse prediction depends on how you "select" the radius of the Sun and the Moon. Here, the nominal solar radius, Rs=695700, is adopted. The radius of the Moon is explained in the "lunar_eclipse.py" below. However, the prediction does not include total solar eclipse and annular solar eclipse as second contact and third contact between the Sun and the Moon are not included yet.
 
 **lunar_eclipse.py**
 
 Find the moment when the moon touches the edge of the Earth's umbra and penumbra. Lunar eclipse prediction depends on how you "select" the radius of the moon. Here, the IAU adopted value k = 0.2725076 is used as default, where Moon's radius = Earth's radius x k. Users may change the parameter to achieve better prediction.
 
-**lunar_appulse.py**
-**stars_lunar_appulse.py**
+**lunar_appulse.py, stars_lunar_appulse.py**
 
-Show the moment of smallest separation between the Moon and the planets or stars under the following conditions:
+Show the moment of smallest angular separation between the Moon and the planets or stars under the following conditions:
 
 1. Separation is less than 1 degree;
-2. The moon is above the horizon;
+2. The Moon is above the horizon;
 3. The Sun is at least 15 degrees below the horizon.
  
- When the separation is less than the apparent radius of the moon. A remark "Occultation" will be shown. For examples:
+ When the separation is less than the apparent radius of the Moon. A remark "Occultation" will be shown. For examples (Hong Kong):
  
 '天王星、月球最小角距(掩)', 'Uranus-Moon Appulse(Occultation)', datetime.date(2022, 11, 8)... 
   
@@ -247,8 +246,8 @@ Show the moment of smallest separation between the Moon and the planets or stars
 
 **planetary_appulse.py**
 
-Show the smallest angular separation between two planets, only separation predictions less than 5 degrees are considered as large angle planetary appulse between the inner planets and outer planets occur often. Obviously, the predicted data are close to those in "planetary_conjunctions_RA.py".
+Show the smallest angular separation between two planets, only separation predictions less than 5 degrees are considered as large-angle planetary appulse between the inner planets and outer planets occur oftenly. Obviously, the predicted data are close to those in "planetary_conjunctions_RA.py".
  
 **moon_apogee_perigee.py**
 
-Find the exact moment when the Moon is farthest (apogee) or nearest(perigee) from the Earth, without considering the time of light to travel from the Moon to the Earth. In order words, it is not the apparent moment when the Moon is at the farthest or nearest. This program calculates the geometric position of the moon, not the astrometric, but users are able to change it in this file.
+Find the exact moment when the Moon is farthest (apogee) or nearest(perigee) from the Earth, without considering the traveling time of light between the Moon and the Earth. In other words, it is not the apparent moment when the Moon is at the farthest or nearest. This program calculates the geometric position of the Moon, not the astrometric, but users are able to change it in this file.
