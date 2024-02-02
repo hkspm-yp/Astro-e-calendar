@@ -88,27 +88,9 @@ If the format of this IMO website is changed, the program will generate incorrec
 
 Since the IMO website above provides the meteor shower of the current year only, the program will always give the same result even if another year is selected.
 
-## Compare with MICA
-This program uses a Python module - Skyfield where most of its generated data fit perfectly with MICA's output. However, there are some modifications as explained below:
+## Conjunction and Appulse
 
-**Rounding of number**
-
-It was found that MICA rounds off incorrectly sometimes. Please observe the following events:
-
-```
-Sunset 2021-7-3 19:11:30; MICA 19:11; NAOJ: 19:12 (may be due to Delta T)
-Full moon 2021-12-19 12:35:30; MICA 12:35; NAOJ 12:36, China 12:36 (may be due to Delta T)
-Full moon 2023-4-6 12:34:31; MICA 12:34
-Full moon 2023-4-20 12:12:32; MICA 12:12
-Full moon 2023-9-29 17:57:32; MICA 12:57
-Neptune Moon Conjunction 2023-11-22 15:45:31; MICA 15:45
-```
-
-Other sources such as the Purple Mountain Observatory, China, and the National Astronomical Observatory of Japan round the time off to the nearest minute. The reason why MICA does not round them off is unknown. This program will round the time off to the nearest minute or mostly second, if available.
-
-**Conjunction and Appulse**
-
-A conjunction is not defined as the closest angular separation between two objects. However, in some situations, it is worth listing the moment of appulse, especially when an occultation happens. For example, a lunar occultation of Uranus looks like this: 
+Planetary conjunction is not defined as the closest angular separation between two celestial objects. However, in some situations, it is worth listing the moment of appulse, especially when an occultation happens. For example, a lunar occultation of Uranus looks like this: 
 
 ```
 Occultation starts (disappearance): 18:58
@@ -116,14 +98,14 @@ Occultation ends (reappearance): 19:47
 Uranus Moon Conjunction (right ascension): 21:11
 ```
 
-The conjunction happens after the reappearance of Uranus, meaning that Uranus has already left the moon disc completely. Here, we add the prediction of appulse: 
+The conjunction happens after the reappearance of Uranus, meaning that Uranus has already left the moon disc completely. Here, if we find the appulse: 
 
 ```
 Occultation starts (disappearance): 18:58
 Uranus Moon Appulse: 19:22
 Occultation ends (reappearance): 19:47
 ```
-The sequence looks more intuitive, but MICA does not offer appulse. This program offers predictions on conjunction and appulse, but please see the explanation session below about the condition of appulse.
+The sequence looks more intuitive. This program offers predictions on both conjunction and appulse, but please see the explanation session below about the condition of appulse.
 
 ## Output selection
 
