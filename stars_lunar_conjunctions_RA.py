@@ -20,11 +20,38 @@ name_list_eng=['Spica-Moon Conjunction',
                'Aldebaran-Moon Conjunction',
                'Pollux-Moon Conjunction',]
 
-Spica = Star(ra_hours=(13, 25, 11.58), dec_degrees=(-11, 9, 40.75))
-Regulus = Star(ra_hours=(10, 8, 22.31), dec_degrees=(11, 58, 1.95))
-Antares = Star(ra_hours=(16, 29, 24.46), dec_degrees=(-26, 25, 55.21))
-Aldebaran = Star(ra_hours=(4, 35, 55.24), dec_degrees=(16, 30, 33.49))
-Pollux = Star(ra_hours=(7, 45, 18.95), dec_degrees=(28, 1, 34.32))
+#The Hipparcos and Tycho Catalogues (ESA 1997)
+Spica = Star(ra_hours=(13, 25, 11.5792824),
+             dec_degrees=(-11, 9, 40.759313),             
+             ra_mas_per_year=-42.50,
+             dec_mas_per_year=-31.73,
+             parallax_mas=12.44)
+
+Regulus = Star(ra_hours=(10, 8, 22.3106646),
+               dec_degrees=(11, 58, 1.945428),             
+               ra_mas_per_year=-249.40,
+               dec_mas_per_year=4.91,
+               parallax_mas=42.09)
+
+
+Antares = Star(ra_hours=(16, 29, 24.4609111),
+               dec_degrees=(-26, 25, 55.208975),             
+               ra_mas_per_year=-10.16	,
+               dec_mas_per_year=-23.21,
+               parallax_mas=5.40)
+
+Aldebaran = Star(ra_hours=(4, 35, 55.2386644),
+                 dec_degrees=(16, 30, 33.485004),             
+                 ra_mas_per_year=62.78,
+                 dec_mas_per_year=-189.36,
+                 parallax_mas=50.09	)
+
+Pollux = Star(ra_hours=(7, 45, 18.9503586), 
+              dec_degrees=(28, 1, 34.315015),             
+              ra_mas_per_year=-625.69,
+              dec_mas_per_year=-45.95,
+              parallax_mas=96.74)
+
 stars_list = [Spica, Regulus, Antares, Aldebaran, Pollux]
 list_stars_conjunctions_RA = []
 
@@ -47,6 +74,7 @@ for i in range(len(stars_list)):
             temp_list_stars_conjunctions_RA=['0=event_Chi', '1=event_Eng','2=date(dd/mm/yyyy)','3=time(hh/mm)','4=remark','5=level']
             temp_list_stars_conjunctions_RA[2]=t.astimezone(HKT).date()
             temp_list_stars_conjunctions_RA[3]=(float(t.astimezone(HKT).time().hour)+float(t.astimezone(HKT).time().minute)/60+float(t.astimezone(HKT).time().second)/3600)/24
+            # temp_list_stars_conjunctions_RA[3]=t.utc_datetime()
             temp_list_stars_conjunctions_RA[4]=''
             temp_list_stars_conjunctions_RA[1]=name_list_eng[i]
             temp_list_stars_conjunctions_RA[0]=name_list_chi[i]
