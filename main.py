@@ -20,9 +20,9 @@ uranus = eph['uranus barycenter']
 neptune = eph['neptune barycenter']
 pluto = eph['pluto barycenter']
 HKT = timezone('Asia/Hong_Kong')
-year = 2023
+year = 2024
 t0 = ts.utc(year, 1, 1) - 1/3
-t1 = ts.utc(year, 12, 31) - 1/3
+t1 = ts.utc(year+1, 1, 1) - 1/3
 HKO = api.wgs84.latlon(+22.30202, +114.17433)
 Earth_radius=6378.1366
 k_IAU=0.2725076
@@ -36,13 +36,10 @@ df_google= pd.DataFrame()
 if __name__ == '__main__':
     from season_events import *    
     from moon_phase import *
-    from opposition import *    
+    from oppositions_conjunctions import *    
     from elongations import *    
     from moon_apogee_perigee import *    
     from earth_apohelion_perihelion import *    
-    from lunar_appulse import *    
-    from planetary_appulse import *
-    from stars_lunar_appulse import *
     from earliest_latest_sunrise_sunset import *
     from solar_eclipses import*
     from lunar_eclipses import *    
@@ -51,6 +48,10 @@ if __name__ == '__main__':
     from stars_lunar_conjunctions_RA import *
     from meteor_shower import*
     
+    # from solar_terms import*    
+    # from lunar_appulse import *    
+    # from planetary_appulse import *
+    # from stars_lunar_appulse import *
     # from all_year_sunrise_sunset import*
     # from twilight import*
     # from planet_moon_rise_set import*
@@ -64,9 +65,6 @@ if __name__ == '__main__':
         list_moon_perigee +    
         list_earth_aphelion +
         list_earth_perihelion +
-        list_lunar_appulse +
-        list_planetary_appulse +
-        list_stars_appulse +
         list_sunrise_sunset + 
         list_solar_eclipses +
         list_lunar_eclipses +
@@ -75,7 +73,11 @@ if __name__ == '__main__':
         list_stars_conjunctions_RA +
         list_meteor_shower
         
-        # list_sunrise +        
+        # list_solar_terms +
+        # list_lunar_appulse +
+        # list_planetary_appulse +
+        # list_stars_appulse +
+        # list_sunrise +
         # list_sunset +
         # list_twilight +
         # list_rising_setting +
