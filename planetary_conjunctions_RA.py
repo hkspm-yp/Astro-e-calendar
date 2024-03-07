@@ -14,8 +14,8 @@ for i in range(len(planet_list)):
     for j in range(len(planet_list)):
         if i < j:
             def planetary_conjunctions_at(t):
-                # e = earth.at(t) # Observe from geocentre
-                e = (earth + HKO).at(t) # Observe from HKO
+                e = earth.at(t) # Observe from earth to get geocentric right ascension
+                #e = (earth + HKO).at(t) # Observe from HKO
                 s = e.observe(planet_list[i]).apparent()
                 m = e.observe(planet_list[j]).apparent()
                 sRa, _, _ = s.radec(epoch = 'date')
@@ -27,13 +27,14 @@ for i in range(len(planet_list)):
             for t, planetary_conjunctions_degrees in zip(planetary_conjunctions_times, planetary_conjunctions):
                 sun_position=earth.at(t).observe(sun).apparent()
                 if planetary_conjunctions_degrees < 0.1:
-                    e = (earth + HKO).at(t) # Observe from HKO
+                    e = (earth).at(t) # Observe from earth to get geocentric right ascension
                     s = e.observe(planet_list[i]).apparent()
                     m = e.observe(planet_list[j]).apparent()
                     
                     temp_list_planetary_conjunctions_RA=['0=event_Chi', '1=event_Eng','2=date(dd/mm/yyyy)','3=time(hh/mm)','4=remark','5=level']
                     temp_list_planetary_conjunctions_RA[2]=t.astimezone(HKT).date()
                     temp_list_planetary_conjunctions_RA[3]=(float(t.astimezone(HKT).time().hour)+float(t.astimezone(HKT).time().minute)/60+float(t.astimezone(HKT).time().second)/3600)/24
+                    # temp_list_planetary_conjunctions_RA[3]=t.utc_datetime()
                     temp_list_planetary_conjunctions_RA[4]='角距 Angular separation: ' + str("%0.2f" %  s.separation_from(m).degrees) +'°'
                     temp_list_planetary_conjunctions_RA[1]=planet_name_list_eng[i] + '-'+ planet_name_list_eng[j]+ ' Conjunction'
                     temp_list_planetary_conjunctions_RA[0]=planet_name_list_chi[i] + '合'+ planet_name_list_chi[j]
