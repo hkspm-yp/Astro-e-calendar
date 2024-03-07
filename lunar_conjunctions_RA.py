@@ -18,8 +18,8 @@ list_lunar_conjunctions_RA=[]
 
 for i in range(7):
     def separation_at(t):
-        #e = earth.at(t) # Observe from geocentre to get the geocentric right ascension
-        e = (earth + HKO).at(t) # Observe from HKO to get local right ascension
+        e = earth.at(t) # Observe from geocentre to get the geocentric right ascension
+        #e = (earth + HKO).at(t) # Observe from HKO to get local right ascension
         s = e.observe(moon).apparent()
         m = e.observe(planet_list[i]).apparent()
         sRa, _, _ = s.radec(epoch = 'date')
@@ -32,7 +32,7 @@ for i in range(7):
 
     for t, separation_degrees in zip(separation_times, separation):
         if separation_degrees < 0.1:
-            e = (earth + HKO).at(t) # Observe from HKO
+            e = earth.at(t)
             s = e.observe(moon).apparent()
             m = e.observe(planet_list[i]).apparent()
                 
